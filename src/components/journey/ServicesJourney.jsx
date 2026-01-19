@@ -74,7 +74,7 @@ function ServicesJourney() {
         <div id="hero-content" className={styles.heroContent}>
           <header className={styles.header}>
             <img
-              src="/images/akser_logo_svart.png"
+              src="/images/akser_logo_svart.svg"
               alt="Akser"
               className={styles.logo}
             />
