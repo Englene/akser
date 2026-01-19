@@ -1,0 +1,394 @@
+/* ============================================
+   AKSER DESIGN SYSTEM - LIGHT THEME
+   Grid-integrated coordinate system aesthetic
+   Minimalistisk: "Best Part is No Part"
+   ============================================ */
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ============================================
+     COLOR TOKENS - LIGHT THEME
+     ============================================ */
+
+  /* Base: Light grays and white */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Accent: Sustainable green (Emerald) */
+  --color-accent-50: #ecfdf5;
+  --color-accent-100: #d1fae5;
+  --color-accent-200: #a7f3d0;
+  --color-accent-300: #6ee7b7;
+  --color-accent-400: #34d399;
+  --color-accent-500: #10b981;
+  --color-accent-600: #059669;
+  --color-accent-700: #047857;
+  --color-accent-800: #065f46;
+  --color-accent-900: #064e3b;
+
+  /* Semantic Colors - LIGHT THEME */
+  --color-background: #ffffff;
+  --color-background-alt: var(--color-slate-50);
+  --color-background-elevated: var(--color-slate-100);
+
+  --color-text-primary: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-600);
+  --color-text-muted: var(--color-slate-500);
+  --color-text-faint: var(--color-slate-400);
+
+  --color-border: var(--color-slate-200);
+  --color-border-hover: var(--color-slate-300);
+
+  /* Grid Colors - Enhanced visibility (20% opacity baseline) */
+  --color-grid: rgba(148, 163, 184, 0.20); /* Slate-400 at 20% */
+  --color-grid-hover: rgba(16, 185, 129, 0.40); /* Emerald glow on hover */
+  --color-grid-active: rgba(16, 185, 129, 0.8);
+
+  /* Grid Intersection Markers */
+  --grid-line-color: rgba(148, 163, 184, 0.20);
+  --grid-intersection: rgba(16, 185, 129, 0.25); /* Emerald hint */
+  --grid-intersection-border: rgba(148, 163, 184, 0.30);
+
+  /* Section Numbers */
+  --section-number-color: var(--color-slate-200);
+  --section-number-hover: var(--color-slate-300);
+
+  /* Primary Accent */
+  --color-primary: var(--color-accent-500);
+  --color-primary-hover: var(--color-accent-600);
+  --color-primary-active: var(--color-accent-700);
+
+  /* ============================================
+     TYPOGRAPHY SCALE
+     ============================================ */
+
+  /* Font Families */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+  --text-7xl: 4.5rem;     /* 72px - Massive display */
+  --text-8xl: 6rem;       /* 96px - Hero typography */
+  --text-section-number: 7.5rem; /* 120px - Section numbers (01, 02) */
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.02em;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* ============================================
+     SPACING SCALE (4px base grid)
+     ============================================ */
+
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-30: 7.5rem;   /* 120px - ONE GRID UNIT */
+  --space-32: 8rem;     /* 128px */
+  --space-40: 10rem;    /* 160px */
+  --space-48: 12rem;    /* 192px */
+  --space-56: 14rem;    /* 224px */
+  --space-64: 16rem;    /* 256px */
+
+  /* ============================================
+     GRID SYSTEM
+     ============================================ */
+
+  --grid-unit: 4px;
+  --grid-cell-size: 24px;        /* 6 × 4px */
+  --grid-spacing: 120px;          /* Desktop: 5 × 24px cells */
+  --grid-opacity: 0.4;
+  --grid-line-width: 1px;
+  --grid-major-line-width: 2px;
+
+  /* Grid-aligned component sizes */
+  --button-sm-width: 72px;   /* 3 celler */
+  --button-md-width: 96px;   /* 4 celler */
+  --button-lg-width: 120px;  /* 5 celler */
+  --button-height: 48px;     /* 2 celler */
+
+  --card-width: 288px;       /* 12 celler */
+  --card-min-height: 240px;  /* 10 celler */
+
+  /* ============================================
+     BORDER RADIUS - RETTE KANTER (0px)
+     "Best Part is No Part" - representerer akser
+     ============================================ */
+
+  --radius-none: 0;
+  --radius-sm: 0;   /* 0px - rette kanter */
+  --radius-md: 0;   /* 0px - rette kanter */
+  --radius-lg: 0;   /* 0px - rette kanter */
+  --radius-xl: 0;   /* 0px - rette kanter */
+  --radius-2xl: 0;  /* 0px - rette kanter */
+  --radius-full: 0; /* 0px - rette kanter */
+
+  /* ============================================
+     SHADOWS (Minimal)
+     ============================================ */
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* Grid-specific glow shadows */
+  --shadow-grid-glow: 0 0 8px var(--color-primary);
+  --shadow-grid-glow-sm: 0 0 4px var(--color-primary);
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+
+  --transition-fast: 150ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-base: 200ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-slow: 300ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-grid: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Easing functions */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-auto: auto;
+
+  /* Specific layers */
+  --z-grid-overlay: 1;
+  --z-content: 5;
+  --z-nav: 100;
+  --z-coordinate-display: 1000;
+  --z-modal: 2000;
+
+  /* ============================================
+     TOPOGRAFISKE KONTURLINJER
+     ============================================ */
+
+  /* Konturlinje farger og opacity */
+  --contour-color-primary: rgba(148, 163, 184, 0.04);   /* Slate-400 ved 4% */
+  --contour-color-secondary: rgba(148, 163, 184, 0.02); /* Slate-400 ved 2% */
+  --contour-color-accent: rgba(16, 185, 129, 0.03);     /* Emerald ved 3% */
+
+  /* Konturavstand (align til grid-system) */
+  --contour-spacing-major: 120px;  /* Matcher grid spacing */
+  --contour-spacing-minor: 40px;   /* 1/3 av grid spacing */
+
+  /* Animasjonstiming */
+  --contour-animation-duration: 20s;
+  --contour-animation-delay: 0s;
+
+  /* ============================================
+     BREAKPOINTS (for reference, used in media queries)
+     ============================================ */
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ============================================
+   RESPONSIVE GRID ADJUSTMENTS
+   ============================================ */
+
+/* Desktop: Full grid */
+@media (min-width: 1024px) {
+  :root {
+    --grid-spacing: 120px;
+    --grid-opacity: 0.4;
+  }
+}
+
+/* Tablet: Reduced grid */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --grid-spacing: 100px;
+    --grid-opacity: 0.3;
+  }
+}
+
+/* Mobile: No grid overlay (component grids remain) */
+@media (max-width: 767px) {
+  :root {
+    --grid-spacing: 80px;
+    --grid-opacity: 0.2;
+  }
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   TYPOGRAPHY BASE
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--text-6xl);
+}
+
+h2 {
+  font-size: var(--text-5xl);
+}
+
+h3 {
+  font-size: var(--text-4xl);
+}
+
+h4 {
+  font-size: var(--text-3xl);
+}
+
+h5 {
+  font-size: var(--text-2xl);
+}
+
+h6 {
+  font-size: var(--text-xl);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Monospace (for coordinates, data) */
+.mono {
+  font-family: var(--font-mono);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Coordinate styling */
+.coordinate {
+  font-family: var(--font-mono);
+  font-weight: var(--font-medium);
+  color: var(--color-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
+}

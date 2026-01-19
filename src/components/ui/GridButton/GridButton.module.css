@@ -1,0 +1,148 @@
+/* ============================================
+   GRID BUTTON COMPONENT STYLES
+   Buttons with integrated grid markers
+   ============================================ */
+
+.gridButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  padding: var(--space-3) var(--space-6);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+
+  border: none;
+  border-radius: 0; /* RETTE KANTER - representerer akser */
+
+  cursor: pointer;
+  overflow: visible;
+
+  transition: all var(--transition-fast);
+
+  /* Grid-aligned sizes */
+  min-width: var(--button-md-width); /* 96px = 4 grid celler */
+  min-height: var(--button-height);   /* 48px = 2 grid celler */
+
+  /* Ensure proper stacking */
+  z-index: 1;
+}
+
+/* Variant: Primary (filled green) */
+.primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.primary:active:not(:disabled) {
+  background: var(--color-primary-active);
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Variant: Secondary (outlined) */
+.secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.secondary:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.15);
+}
+
+.secondary:active:not(:disabled) {
+  background: rgba(16, 185, 129, 0.12);
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Variant: Ghost (text only) */
+.ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+.ghost:hover:not(:disabled) {
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--color-primary);
+}
+
+.ghost:active:not(:disabled) {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+/* Disabled state */
+.gridButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   GRID OVERLAY & CROSSHAIR - REMOVED
+   Minimal Stripe/Linear-style
+   ============================================ */
+
+/* ============================================
+   BUTTON CONTENT
+   ============================================ */
+
+.content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Icon support */
+.content svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   SIZE VARIANTS - Grid-aligned
+   ============================================ */
+
+.small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  min-width: var(--button-sm-width); /* 72px = 3 celler */
+}
+
+.large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+  min-width: var(--button-lg-width); /* 120px = 5 celler */
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .gridButton {
+    /* Increase touch target */
+    min-height: 48px;
+    padding: var(--space-3) var(--space-6);
+  }
+
+  /* Hide coordinates on mobile (too small) */
+  .coordinates {
+    display: none;
+  }
+}

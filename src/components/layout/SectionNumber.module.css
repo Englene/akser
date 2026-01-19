@@ -1,0 +1,54 @@
+/* ============================================
+   SECTION NUMBER - Large editorial numbers
+   Inspired by Pearl Tiling's section numbering
+   ============================================ */
+
+.sectionNumber {
+  font-size: var(--text-section-number); /* 120px */
+  font-weight: 300;
+  line-height: 1;
+  color: var(--section-number-color);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-sans);
+  user-select: none;
+  pointer-events: none;
+  transition: color var(--transition-base);
+}
+
+/* Position variants */
+.position-top-left {
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.position-top-right {
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+
+.position-bottom-left {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+}
+
+.position-bottom-right {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+}
+
+/* Hover effect on parent container */
+.sectionNumber:hover {
+  color: var(--section-number-hover);
+}
+
+/* Responsive - smaller on mobile */
+@media (max-width: 767px) {
+  .sectionNumber {
+    font-size: 4rem; /* 64px on mobile */
+    top: -20px;
+  }
+}

@@ -1,0 +1,483 @@
+/* ============================================
+   AKSER LANDING PAGE - Simple Vertical Flow
+   ============================================ */
+
+.landingPage {
+  position: relative;
+  z-index: 10; /* Above grid (z-index: 1) */
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.heroSection {
+  position: relative;
+  z-index: 10; /* Above grid */
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-8);
+  align-items: center;
+  overflow: hidden;
+}
+
+.terrainBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.heroContent {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.header {
+  margin-bottom: var(--space-8);
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: var(--space-2);
+}
+
+.coordinates {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-primary);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.heroSubtext {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: var(--space-6) 0 0 0;
+  max-width: 560px;
+}
+
+.heroImage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 600px;
+  overflow: visible;
+  border: none;
+  background: transparent;
+}
+
+.heroImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%) brightness(1.05) contrast(0.98);
+  transition: filter var(--transition-base);
+}
+
+.heroImage:hover img {
+  filter: grayscale(0%) brightness(1) contrast(1);
+}
+
+/* ============================================
+   3D TERRAIN CANVAS
+   ============================================ */
+
+.terrainCanvas {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.canvasPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background-alt);
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+/* ============================================
+   SERVICES SECTION
+   ============================================ */
+
+.servicesSection {
+  position: relative;
+  z-index: 10; /* Above grid */
+  padding: var(--space-16) var(--space-8);
+  background: var(--color-background-alt);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionNumber {
+  font-size: 72px;
+  font-weight: 300;
+  color: var(--color-slate-200);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.cardText {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+
+.sectionHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-12);
+}
+
+.sectionDescription {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-4);
+}
+
+/* ============================================
+   FEATURE IMAGE SECTION
+   ============================================ */
+
+.featureSection {
+  position: relative;
+  z-index: 10; /* Above grid */
+  padding: var(--space-16) var(--space-8);
+}
+
+.featureImage {
+  position: relative;
+  z-index: 10; /* Above grid */
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 0.5px solid var(--color-border);
+  background: var(--color-background);
+}
+
+.featureImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%) brightness(1.05) contrast(0.98);
+  transition: filter var(--transition-base);
+}
+
+.featureImage:hover img {
+  filter: grayscale(0%) brightness(1) contrast(1);
+}
+
+.caption {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  right: 32px;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 24px 32px;
+  backdrop-filter: blur(8px);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   SPECIALTY SECTION
+   ============================================ */
+
+.specialtySection {
+  position: relative;
+  z-index: 10; /* Above grid */
+  padding: var(--space-16) var(--space-8);
+  background: var(--color-background-alt);
+}
+
+.specialtySection > * {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HYDROPOWER EXPERTISE SECTION
+   ============================================ */
+
+.hydropowerSection {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-20) var(--space-8);
+  background: var(--color-background);
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contentColumn {
+  max-width: 600px;
+}
+
+.leadText {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: var(--space-6) 0 var(--space-10) 0;
+}
+
+.expertiseList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.expertiseItem h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.expertiseItem p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.imageColumn {
+  position: relative;
+}
+
+.imageColumn .featureImage {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border: 0.5px solid var(--color-border);
+}
+
+.imageCaption {
+  display: flex;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-background-alt);
+  border: 0.5px solid var(--color-border);
+}
+
+.imageCaption span {
+  font-size: 13px;
+  color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .splitLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .imageColumn .featureImage {
+    height: 400px;
+  }
+}
+
+/* ============================================
+   TECHNOLOGY STACK SECTION
+   ============================================ */
+
+.techSection {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-16) var(--space-8);
+  background: var(--color-background-alt);
+}
+
+.techContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.techDescription {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  margin: var(--space-4) 0 var(--space-12) 0;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  text-align: left;
+}
+
+.techCategory {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+.techList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.techItem {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.techBullet {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.ctaSection {
+  position: relative;
+  z-index: 10; /* Above grid */
+  text-align: center;
+  padding: var(--space-20) var(--space-8);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaText {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin: var(--space-6) 0 var(--space-8) 0;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .heroImage {
+    height: 400px;
+  }
+
+  .terrainCanvas {
+    display: none;
+  }
+
+  .heroImage::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80') center/cover;
+    filter: grayscale(15%) brightness(1.05);
+  }
+
+  .servicesSection {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .featureSection {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .featureImage {
+    height: 350px;
+  }
+
+  .caption {
+    font-size: 18px;
+    padding: 16px 24px;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+  }
+
+  .sectionNumber {
+    font-size: 48px;
+  }
+
+  .specialtySection {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .ctaSection {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+}

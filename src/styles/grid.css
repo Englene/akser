@@ -1,0 +1,166 @@
+/* ============================================
+   GRID SYSTEM STYLES
+   Grid overlay and grid-related utilities
+   ============================================ */
+
+/* ============================================
+   GRID OVERLAY - REMOVED
+   Now using OrganicGrid component for layout lines
+   ============================================ */
+
+/* Legacy grid-overlay-static removed - see OrganicGrid.jsx */
+
+/* ============================================
+   GRID UTILITIES
+   ============================================ */
+
+/* Grid cell alignment - align to 24px grid */
+.grid-align {
+  margin-left: calc((100% - (floor(100% / var(--grid-cell-size)) * var(--grid-cell-size))) / 2);
+}
+
+/* Grid spacing utilities (multiples of 24px) */
+.grid-gap-1 {
+  gap: var(--grid-cell-size); /* 24px */
+}
+
+.grid-gap-2 {
+  gap: calc(var(--grid-cell-size) * 2); /* 48px */
+}
+
+.grid-gap-3 {
+  gap: calc(var(--grid-cell-size) * 3); /* 72px */
+}
+
+.grid-gap-4 {
+  gap: calc(var(--grid-cell-size) * 4); /* 96px */
+}
+
+.grid-gap-5 {
+  gap: calc(var(--grid-cell-size) * 5); /* 120px */
+}
+
+/* Grid padding utilities */
+.grid-padding-1 {
+  padding: var(--grid-cell-size);
+}
+
+.grid-padding-2 {
+  padding: calc(var(--grid-cell-size) * 2);
+}
+
+.grid-padding-3 {
+  padding: calc(var(--grid-cell-size) * 3);
+}
+
+/* ============================================
+   GRID CORNER MARKERS (SVG paths)
+   Used in GridButton, GridCard, etc.
+   ============================================ */
+
+.grid-corner-tl {
+  /* Top-left corner path */
+  d: path('M 0 8 L 0 0 L 8 0');
+}
+
+.grid-corner-tr {
+  /* Top-right corner path */
+  d: path('M -8 0 L 0 0 L 0 8');
+}
+
+.grid-corner-br {
+  /* Bottom-right corner path */
+  d: path('M 0 -8 L 0 0 L -8 0');
+}
+
+.grid-corner-bl {
+  /* Bottom-left corner path */
+  d: path('M 8 0 L 0 0 L 0 -8');
+}
+
+/* ============================================
+   GRID ANIMATIONS
+   ============================================ */
+
+@keyframes grid-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes grid-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px var(--color-primary));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px var(--color-primary));
+  }
+}
+
+@keyframes grid-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* Apply grid pulse animation */
+.animate-grid-pulse {
+  animation: grid-pulse 2s ease-in-out infinite;
+}
+
+.animate-grid-glow {
+  animation: grid-glow 2s ease-in-out infinite;
+}
+
+.animate-grid-scan {
+  animation: grid-scan 4s ease-in-out infinite;
+}
+
+/* ============================================
+   GRID-BASED LAYOUT UTILITIES
+   ============================================ */
+
+/* Section spacing (aligned to grid units) */
+.section-spacing {
+  padding-top: var(--space-30);    /* 120px = 5 grid cells */
+  padding-bottom: var(--space-30);
+}
+
+.section-spacing-sm {
+  padding-top: var(--space-24);    /* 96px = 4 grid cells */
+  padding-bottom: var(--space-24);
+}
+
+.section-spacing-lg {
+  padding-top: var(--space-40);    /* 160px ≈ 6.67 grid cells */
+  padding-bottom: var(--space-40);
+}
+
+/* Responsive section spacing */
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .section-spacing-sm {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .section-spacing-lg {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+}

@@ -1,0 +1,67 @@
+/* ============================================
+   GRID CELL - Absolute positioning primitive
+   ============================================ */
+
+.gridCell {
+  position: absolute;
+  pointer-events: all;
+  z-index: var(--z-10); /* Above grid (z-index: 10) */
+  box-sizing: border-box;
+  /* No padding - cells align exactly to grid intersections */
+}
+
+/* Children fill the cell naturally - no flex constraints */
+.gridCell > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Content alignment within cell */
+/* Note: Alignment is now handled by child elements themselves */
+/* Image containers use display: flex internally */
+/* Cards and text use their own padding/margins */
+.align-top-left,
+.align-top-center,
+.align-top-right,
+.align-center-left,
+.align-center,
+.align-center-right,
+.align-bottom-left,
+.align-bottom-center,
+.align-bottom-right {
+  /* Alignment classes preserved for API compatibility but not used */
+  /* Children handle their own alignment */
+}
+
+/* Debug mode - show cell boundaries */
+.debug {
+  border: 1px dashed rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.debugLabel {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-accent-600);
+  background: rgba(16, 185, 129, 0.2);
+  padding: 2px 6px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Responsive - stack on mobile */
+@media (max-width: 767px) {
+  .gridCell {
+    position: relative;
+    width: 100% !important;
+    left: 0 !important;
+    top: auto !important;
+    height: auto !important;
+  }
+}

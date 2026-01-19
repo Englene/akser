@@ -1,0 +1,171 @@
+/* ============================================
+   TYPOGRAPHY - FONT IMPORTS
+   ============================================ */
+
+/* Inter - Geometric Sans Serif (UI text) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* JetBrains Mono - Monospace (coordinates, data) */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+
+/* Heading utilities */
+.text-massive {
+  font-size: clamp(3.75rem, 8vw, 6rem); /* 60-96px responsive */
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.03em; /* Extra tight architectural */
+  line-height: 0.9; /* Tight line height inspired by Fonderie */
+}
+
+.text-hero {
+  font-size: clamp(3rem, 6vw, 4.5rem); /* 48-72px responsive */
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+}
+
+.text-section-number {
+  font-size: var(--text-section-number); /* 120px */
+  font-weight: 300; /* Light weight for subtlety */
+  line-height: 1;
+  color: var(--section-number-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.text-display {
+  font-size: var(--text-6xl);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-tight);
+}
+
+.text-h1 {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-tight);
+}
+
+.text-h2 {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-tight);
+}
+
+.text-h3 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-tight);
+}
+
+.text-h4 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-snug);
+}
+
+/* Body text utilities */
+.text-body-lg {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.text-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.text-body-sm {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.text-caption {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+/* Weight utilities */
+.font-normal {
+  font-weight: var(--font-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-bold);
+}
+
+/* Monospace utilities */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-mono-sm {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-mono-lg {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Color utilities */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-accent {
+  color: var(--color-primary);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .text-display {
+    font-size: var(--text-5xl);
+  }
+
+  .text-h1 {
+    font-size: var(--text-4xl);
+  }
+
+  .text-h2 {
+    font-size: var(--text-3xl);
+  }
+
+  .text-h3 {
+    font-size: var(--text-2xl);
+  }
+}
