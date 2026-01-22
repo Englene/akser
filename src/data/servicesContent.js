@@ -6,39 +6,38 @@
 export const serviceCards = [
   {
     id: '01',
-    title: 'Fallrettigheter & Vannkraft',
-    description: 'Identifisering av vannkraftpotensial i Norge. Vi analyserer fallrettigheter, beregner energiproduksjon og vurderer økonomisk potensial for småkraftverk (1-5 MW).',
+    title: 'Lokasjonskartlegging & Vektordata',
+    description: 'Avansert kartlegging av energiprodusjonslokasjoner ved hjelp av vektordata. Vi identifiserer optimale områder for vannkraftanlegg uten overlapp med eksisterende installasjoner eller beskyttede områder.',
+    image: '/images/services/01-location-mapping.jpg',
     featured: true
   },
   {
     id: '02',
-    title: 'GIS-Kartlegging',
-    description: 'Avansert GIS-teknologi for å identifisere muligheter i terreng. DEM-prosessering, nedbørsfeltanalyse og topografisk kartlegging med høy presisjon.',
-    featured: false
+    title: 'Inntak & Kraftstasjonsoptimalisering',
+    description: 'Optimalisering av plassering for inntak og kraftstasjoner basert på terrenganalyse, falltilgang, og logistiske hensyn. Avanserte algoritmer sikrer maksimal utnyttelse av vannressurser.',
+    image: '/images/services/02-optimization.jpg',
+    featured: true
   },
   {
     id: '03',
-    title: 'Terrenganalyse',
-    description: 'Detaljert analyse av høydedata, skråningsgrad, og topografiske forhold. Satellittbilder kombinert med LiDAR-data for presis terrengmodellering.',
-    featured: false
+    title: 'Produksjonsberegninger (GWh)',
+    description: 'Nøyaktige beregninger av forventet energiproduksjon i GWh basert på nedbørdata, nedbørsfelt, fallhøyde og årsvariasjon. Prognoser som grunnlag for lønnsomhetsanalyser.',
+    image: '/images/services/03-power-calculation.jpg',
+    featured: true
   },
   {
     id: '04',
-    title: 'Automatisert Design',
-    description: 'AI-drevet CAD-generering for vannkraftanlegg. Automatisk dimensjonering av rørgater, turbin-valg og kraftstasjonsplassering basert på terrengdata.',
+    title: 'Konsesjonssøknader',
+    description: 'Komplett utarbeidelse av konsesjonssøknader med påkrevd dokumentasjon, miljøvurderinger, og tekniske tegninger. Vi sikrer at søknadene oppfyller NVEs krav og forskrifter.',
+    image: '/images/services/04-permits.jpg',
     featured: true
   },
   {
     id: '05',
-    title: 'Kraftberegninger',
-    description: 'Nøyaktige beregninger av energiproduksjon, turbinvalg og økonomisk modellering. Over 20 års erfaring med norske vassdrag.',
-    featured: false
-  },
-  {
-    id: '06',
-    title: 'Bærekraftsanalyse',
-    description: 'Datamodeller som balanserer økonomisk utvikling med miljøhensyn. Vurdering av påvirkning på fisk, landskap og biologisk mangfold.',
-    featured: false
+    title: 'On-site Kartlegging & Drone',
+    description: 'Fysisk befaring og dronekartlegging av lokasjonene. Vi dokumenterer terreng, adkomstveier, eksisterende infrastruktur, og potensielle utfordringer med høyoppløselig foto og video.',
+    image: '/images/services/05-site-survey.jpg',
+    featured: true
   }
 ]
 
