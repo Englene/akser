@@ -26,19 +26,6 @@ function Home() {
         {/* Spacer to prevent next section from appearing during scroll */}
         <div style={{ height: '50vh' }} />
 
-        {/* Feature Image Section */}
-        <section className={styles.featureSection}>
-          <div className={styles.featureImage}>
-            <img
-              src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80"
-              alt="Norwegian fjord from above"
-            />
-            <div className={styles.caption}>
-              Vi kartlegger Norge fra himmel til fjord
-            </div>
-          </div>
-        </section>
-
         {/* Technology Stack Section */}
         <section className={styles.techSection}>
           <div className={styles.techContainer}>
