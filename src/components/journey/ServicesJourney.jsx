@@ -100,6 +100,14 @@ function ServicesJourney() {
               <span className={styles.pointNumber}>02</span>
               <span className={styles.pointText}>Avansert Terrenganalyse & DEM-prosessering</span>
             </div>
+            <div className={styles.heroPoint}>
+              <span className={styles.pointNumber}>03</span>
+              <span className={styles.pointText}>Konsesjonssøknader</span>
+            </div>
+            <div className={styles.heroPoint}>
+              <span className={styles.pointNumber}>04</span>
+              <span className={styles.pointText}>Grunneieravtaler</span>
+            </div>
           </div>
         </div>
 
