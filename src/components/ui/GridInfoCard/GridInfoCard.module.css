@@ -1,0 +1,223 @@
+.card {
+  position: relative;
+  background: #ecfdf5; /* Light mint/emerald background */
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  overflow: hidden;
+  transition: all 400ms var(--ease-vercel);
+  will-change: transform, box-shadow;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(16, 185, 129, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Padding only for cards with content wrapper (not service cards with images) */
+.card .content {
+  padding: 24px;
+}
+
+/* Dot grid background */
+.dotPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 12px 12px;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 300ms var(--ease-vercel);
+}
+
+.card:hover .dotPattern {
+  opacity: 1;
+}
+
+/* Corner coordinates */
+.coordTL, .coordTR, .coordBL, .coordBR {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-primary);
+  opacity: 0.4;
+  transition: all 300ms var(--ease-vercel);
+  z-index: 2;
+}
+
+.coordTL { top: 8px; left: 8px; }
+.coordTR { top: 8px; right: 8px; }
+.coordBL { bottom: 8px; left: 8px; }
+.coordBR { bottom: 8px; right: 8px; }
+
+.card:hover .coordTL,
+.card:hover .coordTR,
+.card:hover .coordBL,
+.card:hover .coordBR {
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* Grid lines (hidden by default, show on hover) */
+.gridLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms var(--ease-vercel);
+  z-index: 1;
+}
+
+.card:hover .gridLines {
+  opacity: 1;
+}
+
+.verticalLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(16, 185, 129, 0.4) 50%,
+    transparent
+  );
+}
+
+.horizontalLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(16, 185, 129, 0.4) 50%,
+    transparent
+  );
+}
+
+/* Number badge - simple with corner brackets */
+.numberBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.cornerBrackets {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--color-primary);
+  opacity: 0.6;
+  transition: opacity 200ms var(--ease-vercel);
+}
+
+.numberText {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.card:hover .numberBadge .cornerBrackets {
+  opacity: 1;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 3;
+}
+
+/* Variants */
+.highlighted {
+  border-color: var(--color-primary);
+  background: #d1fae5; /* Slightly darker mint for highlighted */
+}
+
+.highlighted .dotPattern {
+  background-image: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.25) 1px,
+    transparent 1px
+  );
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Active state - when card is in viewport */
+.active {
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(16, 185, 129, 0.15);
+  transform: translateY(-2px);
+}
+
+.active .dotPattern {
+  opacity: 1;
+}
+
+.active .coordTL,
+.active .coordTR,
+.active .coordBL,
+.active .coordBR {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.active .numberBadge {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card .content {
+    padding: 24px;
+  }
+
+  .numberBadge {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .coordTL, .coordTR, .coordBL, .coordBR {
+    font-size: 8px;
+  }
+
+  /* Reduce dot pattern density on mobile */
+  .dotPattern {
+    background-size: 16px 16px;
+  }
+}

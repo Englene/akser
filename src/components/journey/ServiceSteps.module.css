@@ -1,59 +1,70 @@
-.stepsContainer {
+/* ============================================
+   FRAMER-STYLE HORIZONTAL SCROLLER
+   Vertical scroll → Horizontal movement with section lock
+   ============================================ */
+
+.section {
   position: relative;
-  z-index: 2;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 80px 40px;
+  height: 500vh; /* Creates vertical scroll space for horizontal movement */
 }
 
-.stepCard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  gap: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 3px solid #10b981;
-  padding: 0;
-  margin-bottom: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
   overflow: hidden;
-}
-
-.stepCard:hover {
-  transform: translateX(10px);
-  box-shadow:
-    0 20px 60px rgba(16, 185, 129, 0.15),
-    0 0 0 1px rgba(16, 185, 129, 0.1);
-}
-
-.stepLeft {
   display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  padding: 60px;
+  align-items: center;
 }
 
-.stepNumber {
+.horizontalScroller {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  will-change: transform;
+}
+
+.card {
   flex-shrink: 0;
-  width: 120px;
-  height: 120px;
+  width: 100vw;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(236, 253, 245, 1);
-  border: 4px solid #10b981;
+  padding: 0 5vw;
+}
+
+.buffer {
+  flex-shrink: 0;
+  width: 50vw;
+}
+
+.cardContent {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+.textContent {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stepMeta {
   font-family: var(--font-mono);
-  font-size: 56px;
-  font-weight: 700;
-  color: #10b981;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
 }
 
-.stepContent {
-  flex: 1;
-}
-
-.stepTitle {
+.title {
   font-size: 36px;
   font-weight: 700;
   color: #111827;
@@ -61,30 +72,26 @@
   line-height: 1.3;
 }
 
-.stepDescription {
+.description {
   font-size: 18px;
   line-height: 1.7;
   color: #4b5563;
   margin: 0;
 }
 
-.stepImage {
+.imageContent {
   width: 100%;
   height: 100%;
   min-height: 400px;
-  border-radius: 0;
-  overflow: hidden;
-  border: none;
-  border-left: 3px solid #10b981;
-  flex-shrink: 0;
   background: #f9fafb;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
-.stepImage::after {
+.imageContent::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -98,21 +105,12 @@
   pointer-events: none;
 }
 
-.stepImage img {
+.imageContent img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   opacity: 0.85;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.stepCard:hover .stepImage img {
-  opacity: 1;
-}
-
-.stepCard:hover .stepImage img:not(.rotateImage) {
-  transform: scale(1.03);
 }
 
 .rotateImage {
@@ -120,19 +118,11 @@
   object-fit: cover !important;
 }
 
-.stepCard:hover .rotateImage {
-  transform: rotate(355deg) scale(1.08) !important;
-}
-
 .mapPins {
   position: absolute;
   inset: 0;
   pointer-events: none;
   transform: rotate(355deg) scale(1.05);
-}
-
-.stepCard:hover .mapPins {
-  transform: rotate(355deg) scale(1.08);
 }
 
 .pin {
@@ -149,21 +139,10 @@
   animation: pinPulse 2s ease-in-out infinite;
 }
 
-.pin:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.pin:nth-child(3) {
-  animation-delay: 0.8s;
-}
-
-.pin:nth-child(4) {
-  animation-delay: 1.2s;
-}
-
-.pin:nth-child(5) {
-  animation-delay: 1.6s;
-}
+.pin:nth-child(2) { animation-delay: 0.4s; }
+.pin:nth-child(3) { animation-delay: 0.8s; }
+.pin:nth-child(4) { animation-delay: 1.2s; }
+.pin:nth-child(5) { animation-delay: 1.6s; }
 
 @keyframes pinPulse {
   0%, 100% {
@@ -178,64 +157,29 @@
   }
 }
 
-.stepConnector {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 0;
-  margin-bottom: 0;
-}
-
-.arrow {
-  display: block;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.stepConnector:hover .arrow {
-  opacity: 1;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  .stepsContainer {
-    padding: 40px 20px;
+  .card {
+    flex: 0 0 95vw;
   }
 
-  .stepCard {
+  .cardContent {
     grid-template-columns: 1fr;
-    gap: 0;
-    padding: 0;
   }
 
-  .stepLeft {
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px 30px;
+  .textContent {
+    padding: 30px 20px;
   }
 
-  .stepNumber {
-    width: 80px;
-    height: 80px;
-    font-size: 40px;
-  }
-
-  .stepTitle {
+  .title {
     font-size: 28px;
   }
 
-  .stepDescription {
+  .description {
     font-size: 16px;
   }
 
-  .stepImage {
-    width: 100%;
+  .imageContent {
     min-height: 250px;
-    border-left: none;
-    border-top: 3px solid #10b981;
-  }
-
-  .stepConnector {
-    padding: 40px 0;
   }
 }

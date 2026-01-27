@@ -1,0 +1,49 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  margin: 0;
+}
+
+.track {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100% - 80px); /* Account for arrow height */
+  background: rgba(16, 185, 129, 0.15);
+  border-radius: 1px;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: var(--color-primary);
+  border-radius: 1px;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+  transform-origin: top;
+}
+
+.arrow {
+  position: relative;
+  margin-top: auto;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.container:hover .arrow {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 0;
+  }
+}

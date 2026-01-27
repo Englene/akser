@@ -1,0 +1,86 @@
+/* ============================================
+   HORIZONTAL SCROLLER - Scroll-locked carousel
+   Vertical scroll drives horizontal card movement
+   ============================================ */
+
+.section {
+  position: relative;
+  height: 300vh; /* Reduced scroll space to prevent over-scrolling */
+  background: var(--color-background);
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: relative;
+  z-index: 100; /* CRITICAL: Puts title in front of background */
+  padding: var(--space-12) var(--space-6) var(--space-6);
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    var(--color-background) 0%,
+    var(--color-background) 70%,
+    transparent 100%
+  );
+}
+
+.progressBar {
+  width: 200px;
+  height: 2px;
+  background: rgba(16, 185, 129, 0.2);
+  margin: var(--space-4) auto 0;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--color-primary);
+  transform-origin: left;
+}
+
+.scrollContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.scrollTrack {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: var(--space-8); /* Spacing between cards */
+  will-change: transform;
+  padding: 0 var(--space-6);
+}
+
+.buffer {
+  flex-shrink: 0;
+  width: 200px; /* Small buffer after last card */
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section {
+    height: 400vh; /* Keep same height for mobile */
+  }
+
+  .header {
+    padding: var(--space-8) var(--space-4) var(--space-4);
+  }
+
+  .progressBar {
+    width: 150px;
+  }
+}

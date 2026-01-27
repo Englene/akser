@@ -67,3 +67,30 @@ export const technologyStack = [
     tools: ['Python/NumPy', 'CAD-generering', 'AI-optimalisering', 'Batch-prosessering']
   }
 ]
+
+export const upcomingServices = [
+  {
+    id: 'solar',
+    title: 'Solenergi-kartlegging',
+    description: 'Identifisering av optimale områder for solkraftanlegg basert på solinnstråling, terreng, og nettilgang.',
+    status: 'I utvikling'
+  },
+  {
+    id: 'energy-clusters',
+    title: 'Energi-clustere & Datasenter',
+    description: 'Analyse av energi-tilgang og kostnader for å finne de mest lønnsomme lokasjonene for datasenter. Identifisering av clustere med tilgang på vannkraft, solkraft, og batteripakker.',
+    status: 'Planlagt'
+  },
+  {
+    id: 'cost-analysis',
+    title: 'Multi-energi Kostnadsanalyse',
+    description: 'Detaljert sammenligning av solkraft, batteripakker, og vannkraft. Lønnsomhetsberegninger og optimalisering av energimiks for ulike prosjekttyper.',
+    status: 'Planlagt'
+  },
+  {
+    id: 'battery-storage',
+    title: 'Batteripakke-optimalisering',
+    description: 'Dimensjonering og plassering av batteripakker for energilagring. Integrasjon med sol- og vannkraft for maksimal utnyttelse.',
+    status: 'Planlagt'
+  }
+]

@@ -1,0 +1,20 @@
+/* Parallax Layer - Performance Optimizations */
+
+.parallaxLayer {
+  /* GPU acceleration for smooth 60fps parallax */
+  will-change: transform;
+
+  /* Ensure layer is on its own composite layer */
+  transform: translateZ(0);
+
+  /* Prevent any overflow issues */
+  overflow: visible;
+}
+
+/* Disable parallax on mobile for performance */
+@media (max-width: 768px) {
+  .parallaxLayer {
+    transform: none !important;
+    will-change: auto;
+  }
+}

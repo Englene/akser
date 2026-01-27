@@ -140,6 +140,10 @@
   --space-56: 14rem;    /* 224px */
   --space-64: 16rem;    /* 256px */
 
+  /* Premium spacing for evolution */
+  --section-padding-y-large: 15rem;    /* 240px - modest increase */
+  --card-gap-comfortable: 6rem;        /* 96px */
+
   /* ============================================
      GRID SYSTEM
      ============================================ */
@@ -186,6 +190,13 @@
   --shadow-grid-glow: 0 0 8px var(--color-primary);
   --shadow-grid-glow-sm: 0 0 4px var(--color-primary);
 
+  /* Premium shadows med emerald glow */
+  --shadow-glow: 0 8px 30px rgba(16, 185, 129, 0.3);
+  --shadow-card-hover:
+    0 0 0 1px #10b981,
+    0 20px 50px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(16, 185, 129, 0.1);
+
   /* ============================================
      TRANSITIONS
      ============================================ */
@@ -194,6 +205,11 @@
   --transition-base: 200ms cubic-bezier(0.25, 1, 0.5, 1);
   --transition-slow: 300ms cubic-bezier(0.25, 1, 0.5, 1);
   --transition-grid: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Premium transitions med Vercel easing */
+  --ease-vercel: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-premium: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow-premium: 600ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Easing functions */
   --ease-in: cubic-bezier(0.4, 0, 1, 1);

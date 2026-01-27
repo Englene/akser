@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import styles from './GridButton.module.css'
 
 /**
@@ -24,6 +25,7 @@ function GridButton({
   showCoordinates = false,
   showCrosshair = true,
   cornerSize = 8,
+  magnetic = true,
   children,
   onClick,
   disabled = false,
@@ -32,6 +34,28 @@ function GridButton({
   y,
   ...props
 }) {
+  const buttonRef = useRef(null)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+
+  // Magnetic hover effect
+  const handleMouseMove = (e) => {
+    if (!magnetic || !buttonRef.current || disabled) return
+
+    const rect = buttonRef.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+
+    // Calculate distance from center (max 20% movement)
+    const deltaX = (e.clientX - centerX) * 0.2
+    const deltaY = (e.clientY - centerY) * 0.2
+
+    setPosition({ x: deltaX, y: deltaY })
+  }
+
+  const handleMouseLeave = () => {
+    setPosition({ x: 0, y: 0 })
+  }
+
   // Combine class names
   const buttonClasses = [
     styles.gridButton,
@@ -41,17 +65,22 @@ function GridButton({
   ].filter(Boolean).join(' ')
 
   return (
-    <button
+    <motion.button
+      ref={buttonRef}
       className={buttonClasses}
       onClick={onClick}
       disabled={disabled}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      animate={{ x: position.x, y: position.y }}
+      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
       {...props}
     >
       {/* Button Content */}
       <span className={styles.content}>
         {children}
       </span>
-    </button>
+    </motion.button>
   )
 }
 

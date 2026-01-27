@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import TopoScrollBackground from './TopoScrollBackground'
-import ScrollTerrainViewer from './ScrollTerrainViewer'
+import ParticlesWaves from '../effects/ParticlesWaves'
 import ServiceSteps from './ServiceSteps'
+import ParallaxLayer from '../effects/ParallaxLayer'
 import styles from './ServicesJourney.module.css'
 
 /**
@@ -55,20 +57,22 @@ function ServicesJourney() {
 
   return (
     <section id="services-journey" className={styles.journeySection}>
-      {/* 3D Terrain Background - Fullscreen with parallax */}
-      <div className={styles.terrainBackground}>
-        <React.Suspense fallback={null}>
-          <ScrollTerrainViewer
-            scrollProgress={scrollProgress}
-            className={styles.terrainViewer}
-          />
-        </React.Suspense>
-      </div>
+      {/* LAYER 1 - 3D Particles Waves Background (fixed, no parallax transform) */}
+      <ParticlesWaves
+        scrollProgress={scrollProgress / 100}  // Normalize to 0-1
+        color="#10b981"           // Emerald-500
+        opacity={0.35}            // Slightly more visible
+        waveSpeed={0.8}           // Slightly slower for smoother motion
+        waveAmplitude={1.5}       // Larger waves for dramatic effect
+        gridSize={{ width: 60, height: 40 }}
+      />
 
-      {/* Topografisk bakgrunn */}
-      <TopoScrollBackground />
+      {/* LAYER 2 - Midground (0.6x speed - medium parallax) */}
+      <ParallaxLayer speed={0.6}>
+        <TopoScrollBackground />
+      </ParallaxLayer>
 
-      {/* Content overlaid on terrain */}
+      {/* LAYER 3 - Foreground (1x speed - normal scroll, no parallax wrapper) */}
       <div className={styles.servicesColumn}>
         {/* Hero content */}
         <div id="hero-content" className={styles.heroContent}>
@@ -82,9 +86,21 @@ function ServicesJourney() {
           </header>
 
           <h1 className="text-massive">
-            Datadrevet
-            <br />
-            Kartanalyse
+            {['Datadrevet', 'Kartanalyse'].map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: i * 0.2,
+                  duration: 0.6,
+                  ease: [0.16, 1, 0.3, 1] // Vercel easing
+                }}
+                style={{ display: 'block' }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </h1>
           <p className={styles.heroSubtext}>
             Vi identifiserer skjulte muligheter i terreng og landskap

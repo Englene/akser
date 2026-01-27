@@ -1,0 +1,26 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ring {
+  transform: rotate(-90deg); /* Start from top */
+  overflow: visible;
+}
+
+.track {
+  fill: none;
+  stroke: rgba(16, 185, 129, 0.15);
+  stroke-linecap: round;
+}
+
+.progress {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.4));
+}

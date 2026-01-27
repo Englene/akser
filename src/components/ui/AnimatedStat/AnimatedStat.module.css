@@ -1,0 +1,77 @@
+/* ============================================
+   ANIMATED STAT
+   Count-up statistics with grid aesthetic
+   ============================================ */
+
+.stat {
+  text-align: center;
+  padding: var(--space-6);
+  position: relative;
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.number {
+  display: inline-block;
+  min-width: 3ch; /* Prevent layout shift during count */
+  text-align: right;
+}
+
+.suffix {
+  font-size: 32px;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.gridLine {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-primary) 50%,
+    transparent
+  );
+  opacity: 0.3;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .stat {
+    padding: var(--space-4);
+  }
+
+  .value {
+    font-size: 36px;
+  }
+
+  .suffix {
+    font-size: 24px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+}

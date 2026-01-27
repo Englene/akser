@@ -1,9 +1,17 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import GridButton from '../components/ui/GridButton'
 import GridCard from '../components/ui/GridCard'
+import GridInfoCard from '../components/ui/GridInfoCard'
+import GridDivider from '../components/ui/GridDivider'
 import { OrganicGrid } from '../components/layout'
-import TopoBackground from '../components/layout/TopoBackground'
+import ParticlesWaves from '../components/effects/ParticlesWaves'
+import ScrollProgressBar from '../components/ui/ScrollProgressBar'
+import HorizontalScroller from '../components/ui/HorizontalScroller'
+import AnimatedStat from '../components/ui/AnimatedStat'
+import SectionNav from '../components/navigation/SectionNav'
 import { ServicesJourney } from '../components/journey'
+import { UpcomingServices } from '../components/sections'
 import { serviceCards, technologyStack } from '../data/servicesContent'
 import styles from './Home.module.css'
 
@@ -12,11 +20,26 @@ import styles from './Home.module.css'
  * Simple vertical flow layout
  */
 function Home() {
+  // Section navigation configuration
+  const sections = [
+    { id: 'services-journey', label: 'Tjenester' },
+    { id: 'tech-section', label: 'Teknologi' },
+    { id: 'upcoming-section', label: 'Kommende' },
+    { id: 'cta-section', label: 'Kontakt' }
+  ]
+
   return (
     <>
       {/* <CoordinateDisplay /> */}
-      <TopoBackground variant="standard" animated={false} />
+      <ParticlesWaves
+        scrollProgress={0}
+        opacity={0.3}
+        waveAmplitude={1.2}
+        waveSpeed={0.8}
+      />
       <OrganicGrid />
+      <ScrollProgressBar position="right" showLabel={false} />
+      <SectionNav sections={sections} />
 
       <div className={styles.landingPage}>
 
@@ -26,34 +49,68 @@ function Home() {
         {/* Spacer to prevent next section from appearing during scroll */}
         <div style={{ height: '50vh' }} />
 
-        {/* Technology Stack Section */}
-        <section className={styles.techSection}>
-          <div className={styles.techContainer}>
-            <h2 className="text-hero">Teknologi & Verktøy</h2>
-            <p className={styles.techDescription}>
-              Vi bruker industristandarder innen GIS, terrenganalyse og vannkraftdesign
-            </p>
+        {/* Divider between Services and Stats */}
+        <GridDivider
+          variant="coordinate"
+          leftLabel="[0.0, Tjenester]"
+          rightLabel="[1.0, Statistikk]"
+        />
 
-            <div className={styles.techGrid}>
-              {technologyStack.map((category, idx) => (
-                <GridCard key={idx} variant="default" padding="comfortable">
-                  <h4 className={styles.techCategory}>{category.category}</h4>
-                  <ul className={styles.techList}>
-                    {category.tools.map((tool, i) => (
-                      <li key={i} className={styles.techItem}>
-                        <span className={styles.techBullet}>•</span>
-                        {tool}
-                      </li>
-                    ))}
-                  </ul>
-                </GridCard>
-              ))}
-            </div>
+        {/* Stats Section */}
+        <section className={styles.statsSection}>
+          <div className={styles.statsGrid}>
+            <AnimatedStat value={50} suffix="+" label="Prosjekter Fullført" />
+            <AnimatedStat value={10} suffix="TB+" label="Data Analysert" />
+            <AnimatedStat value={99.9} suffix="%" label="Oppetid" />
           </div>
         </section>
 
+        {/* Divider between Stats and Tech */}
+        <GridDivider
+          variant="axis"
+        />
+
+        {/* Technology Stack Section - Horizontal Scroller */}
+        <HorizontalScroller title="Teknologi & Verktøy">
+          {technologyStack.map((category, idx) => (
+            <GridInfoCard
+              key={idx}
+              variant="default"
+              number={`0${idx + 1}`}
+              coordinates={{
+                tl: `[${idx},0]`,
+                tr: `[${idx},1]`,
+                bl: `[${idx + 1},0]`,
+                br: `[${idx + 1},1]`
+              }}
+              className={styles.techCardWrapper}
+            >
+              <h4 className={styles.techCategory}>{category.category}</h4>
+              <ul className={styles.techList}>
+                {category.tools.map((tool, i) => (
+                  <li key={i} className={styles.techItem}>
+                    <span className={styles.techBullet}>•</span>
+                    {tool}
+                  </li>
+                ))}
+              </ul>
+            </GridInfoCard>
+          ))}
+        </HorizontalScroller>
+
+        {/* Divider between Tech and Upcoming */}
+        <GridDivider variant="axis" />
+
+        {/* Upcoming Services - Pipeline */}
+        <UpcomingServices />
+
+        {/* Divider before CTA */}
+        <GridDivider
+          variant="gradient"
+        />
+
         {/* CTA Section */}
-        <section className={styles.ctaSection}>
+        <section id="cta-section" className={styles.ctaSection}>
           <h2 className="text-hero">
             Klar for å utforske?
           </h2>

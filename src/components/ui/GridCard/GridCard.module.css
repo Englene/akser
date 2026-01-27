@@ -131,6 +131,42 @@
 }
 
 /* ============================================
+   EMERALD GRID LINES ON HOVER (NEW)
+   ============================================ */
+
+.gridCard::before,
+.gridCard::after {
+  content: '';
+  position: absolute;
+  background: rgba(16, 185, 129, 0.2);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-vercel);
+  pointer-events: none;
+  z-index: var(--z-10);
+}
+
+.gridCard::before {
+  /* Vertical line */
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.gridCard::after {
+  /* Horizontal line */
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.gridCard:hover::before,
+.gridCard:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
    PADDING VARIANTS
    ============================================ */
 
