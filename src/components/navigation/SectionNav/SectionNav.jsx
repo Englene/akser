@@ -35,42 +35,42 @@ function SectionNav({ sections }) {
 
         // Collect all cards in this section
         const cards = element.querySelectorAll('[data-card-index]')
-        cards.forEach((card, cardIndex) => {
-          const rect = card.getBoundingClientRect()
-          const cardCenter = rect.top + rect.height / 2
-          const isActive = Math.abs(cardCenter - viewportCenter) < rect.height / 2
-
-          cardData.push({
-            sectionIndex,
-            cardIndex,
-            isActive,
-            offsetTop: card.offsetTop
-          })
-        })
 
         if (isInSection) {
           newActiveSection = sectionIndex
 
-          // Calculate progress within this section (0-100%)
-          const sectionScrollProgress = ((scrollPosition - offsetTop) / offsetHeight) * 100
-          overallProgress = ((sectionIndex + (sectionScrollProgress / 100)) / sections.length) * 100
-
           // Count cards within active section
           if (cards.length > 0) {
-            let currentCard = 0
+            // Calculate which card is active based on scroll progress within the section
+            // This works for both horizontal carousels and vertical layouts
+            const sectionScrollProgress = (scrollPosition - offsetTop) / offsetHeight
 
-            cards.forEach((card, idx) => {
-              const rect = card.getBoundingClientRect()
-              const cardCenter = rect.top + rect.height / 2
-
-              if (cardCenter <= viewportCenter) {
-                currentCard = idx + 1
-              }
-            })
+            // Map scroll progress to card index (0-based)
+            // For 6 cards over 500vh: each card gets ~16.67% of scroll range
+            const activeCardIndex = Math.floor(sectionScrollProgress * cards.length)
+            const currentCard = Math.min(Math.max(activeCardIndex + 1, 1), cards.length)
 
             setActiveCard({ current: currentCard, total: cards.length })
+
+            // Build cardData for sub-markers
+            cards.forEach((card, cardIndex) => {
+              cardData.push({
+                sectionIndex,
+                cardIndex,
+                isActive: cardIndex === currentCard - 1,
+                isPassed: cardIndex < currentCard - 1
+              })
+            })
+
+            // Calculate progress based on active card
+            const cardProgress = currentCard / cards.length
+            overallProgress = ((sectionIndex + cardProgress) / sections.length) * 100
           } else {
             setActiveCard({ current: 0, total: 0 })
+
+            // Fallback: use scroll position if no cards
+            const sectionScrollProgress = ((scrollPosition - offsetTop) / offsetHeight) * 100
+            overallProgress = ((sectionIndex + (sectionScrollProgress / 100)) / sections.length) * 100
           }
         }
       })
@@ -140,8 +140,8 @@ function SectionNav({ sections }) {
                 </span>
               </button>
 
-              {/* Card sub-markers (small dots between sections) */}
-              {cardsInSection.length > 0 && cardsInSection.map((card, cardIdx) => {
+              {/* Card sub-markers (small dots for each card) */}
+              {isActive && cardsInSection.length > 0 && cardsInSection.map((card, cardIdx) => {
                 // Position cards evenly between this section and next
                 const sectionSpacing = nextSectionPosition - position
                 const cardPosition = position + ((cardIdx + 1) / (cardsInSection.length + 1)) * sectionSpacing
@@ -149,7 +149,7 @@ function SectionNav({ sections }) {
                 return (
                   <div
                     key={`${sectionIndex}-${cardIdx}`}
-                    className={`${styles.subMarker} ${card.isActive ? styles.activeCard : ''}`}
+                    className={`${styles.subMarker} ${card.isActive ? styles.activeCard : ''} ${card.isPassed ? styles.passedCard : ''}`}
                     style={{ top: `${cardPosition}%` }}
                   />
                 )
