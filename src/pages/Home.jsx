@@ -59,9 +59,9 @@ function Home() {
         {/* Stats Section */}
         <section className={styles.statsSection}>
           <div className={styles.statsGrid}>
-            <AnimatedStat value={50} suffix="+" label="Prosjekter Fullført" />
-            <AnimatedStat value={10} suffix="TB+" label="Data Analysert" />
-            <AnimatedStat value={99.9} suffix="%" label="Oppetid" />
+            <AnimatedStat value={5934} suffix="" label="Elver Analysert" />
+            <AnimatedStat value={10} suffix="TWh+" label="Uutnyttet Kapasitet Identifisert" />
+            <AnimatedStat value={1500} suffix="+" label="Kostnadsanalyser Gjort" />
           </div>
         </section>
 
