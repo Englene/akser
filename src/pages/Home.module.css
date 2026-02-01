@@ -345,6 +345,206 @@
 }
 
 /* ============================================
+   DIFFERENTIATOR SECTION
+   ============================================ */
+
+.differentiatorSection {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-20) var(--space-8);
+  background: var(--color-background);
+}
+
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto var(--space-12);
+}
+
+.comparisonTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+.comparisonList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.comparisonList li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.comparisonList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.principleQuote {
+  max-width: 800px;
+  margin: var(--space-12) auto 0;
+  text-align: center;
+  padding: var(--space-8);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.quoteText {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ============================================
+   ANALYSIS LEVELS SECTION
+   ============================================ */
+
+.analysisLevelsSection {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-20) var(--space-8);
+  background: var(--color-background-alt);
+}
+
+.levelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.levelTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+.levelDescription {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.levelFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.levelFeature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.featureIcon {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.levelOutput {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.levelOutput strong {
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* ============================================
+   TARGET AUDIENCES SECTION
+   ============================================ */
+
+.audiencesSection {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-20) var(--space-8);
+  background: var(--color-background);
+}
+
+.audiencesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.audienceTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  line-height: 1.4;
+}
+
+.audienceIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.audienceList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.audienceList li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.audienceList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* ============================================
    TECHNOLOGY STACK SECTION
    ============================================ */
 

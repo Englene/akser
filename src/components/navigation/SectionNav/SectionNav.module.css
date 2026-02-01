@@ -137,7 +137,7 @@
   transform: translate(-50%, -50%);
   width: 4px;
   height: 4px;
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(148, 163, 184, 0.3); /* Gray - not yet reached */
   border-radius: 50%;
   transition: all 200ms var(--ease-vercel);
   pointer-events: none;
@@ -145,8 +145,14 @@
 
 .subMarker.activeCard {
   background: var(--color-primary);
-  transform: translate(-50%, -50%) scale(1.5);
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+  transform: translate(-50%, -50%) scale(1.8);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.subMarker.passedCard {
+  background: var(--color-primary);
+  opacity: 0.5;
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
 /* ============================================

@@ -86,13 +86,13 @@ function ServicesJourney() {
           </header>
 
           <h1 className="text-massive">
-            {['Datadrevet', 'Kartanalyse'].map((word, i) => (
+            {['Datadrevet', 'Beslutningsstøtte', 'for Kraftkrevende', 'Virksomhet'].map((word, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: i * 0.2,
+                  delay: i * 0.15,
                   duration: 0.6,
                   ease: [0.16, 1, 0.3, 1] // Vercel easing
                 }}
@@ -103,26 +103,26 @@ function ServicesJourney() {
             ))}
           </h1>
           <p className={styles.heroSubtext}>
-            Vi identifiserer skjulte muligheter i terreng og landskap
-            ved hjelp av avansert GIS-teknologi og topografisk analyse.
+            Vi identifiserer hvor kraftkrevende prosjekter faktisk kan realiseres –
+            basert på energi, nett, infrastruktur og risiko.
           </p>
 
           <div className={styles.heroPoints}>
             <div className={styles.heroPoint}>
               <span className={styles.pointNumber}>01</span>
-              <span className={styles.pointText}>Vannkraftpotensial & Fallrettigheter</span>
+              <span className={styles.pointText}>Energi & Produksjonsprofiler (Vann + Sol)</span>
             </div>
             <div className={styles.heroPoint}>
               <span className={styles.pointNumber}>02</span>
-              <span className={styles.pointText}>Avansert Terrenganalyse & DEM-prosessering</span>
+              <span className={styles.pointText}>Nettrisikoanalyse & Infrastruktur</span>
             </div>
             <div className={styles.heroPoint}>
               <span className={styles.pointNumber}>03</span>
-              <span className={styles.pointText}>Konsesjonssøknader</span>
+              <span className={styles.pointText}>Datasenter & Kraftkrevende Industri</span>
             </div>
             <div className={styles.heroPoint}>
               <span className={styles.pointNumber}>04</span>
-              <span className={styles.pointText}>Grunneieravtaler</span>
+              <span className={styles.pointText}>Kommunal Energikartlegging</span>
             </div>
           </div>
         </div>
