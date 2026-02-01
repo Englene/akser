@@ -344,6 +344,49 @@
   gap: var(--space-8);
 }
 
+.statsNote {
+  margin: var(--space-6) auto 0;
+  text-align: center;
+  max-width: 720px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   EVALUATION SECTION
+   ============================================ */
+
+.evaluationSection {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-16) var(--space-8);
+  background: var(--color-background);
+}
+
+.evaluationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.evaluationTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+.evaluationText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
 /* ============================================
    DIFFERENTIATOR SECTION
    ============================================ */
@@ -632,6 +675,44 @@
 }
 
 /* ============================================
+   MID CTA SECTION
+   ============================================ */
+
+.midCtaSection {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: var(--space-16) var(--space-8);
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.midCtaTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.midCtaText {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0 auto var(--space-6);
+  max-width: 700px;
+}
+
+.midCtaButtons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
    CTA SECTION
    ============================================ */
 
@@ -724,6 +805,15 @@
   }
 
   .ctaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .midCtaSection {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .midCtaButtons {
     flex-direction: column;
     width: 100%;
   }

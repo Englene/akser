@@ -17,7 +17,7 @@ export const serviceCards = [
     image: '/images/services/02-hydropower.png',
     moduleType: 'core',
     category: 'Kjerne-modul',
-    icon: '💧',
+    icon: '',
     status: 'Aktiv',
     featured: true
   },
@@ -28,7 +28,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&h=800&fit=crop&q=90',
     moduleType: 'core',
     category: 'Kjerne-modul',
-    icon: '☀️',
+    icon: '',
     status: 'I utvikling',
     featured: true
   },
@@ -39,7 +39,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=800&fit=crop&q=90',
     moduleType: 'core',
     category: 'Kjerne-modul',
-    icon: '⚡',
+    icon: '',
     status: 'Aktiv',
     featured: true
   },
@@ -50,7 +50,7 @@ export const serviceCards = [
     image: '/images/services/03-dam.jpg',
     moduleType: 'core',
     category: 'Kjerne-modul',
-    icon: '📊',
+    icon: '',
     status: 'Aktiv',
     featured: true
   },
@@ -63,7 +63,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&q=90',
     moduleType: 'combined',
     category: 'Kombinasjonsmodul',
-    icon: '🖥️',
+    icon: '',
     status: 'Aktiv',
     targetAudience: 'Datasentereiere, AI/tech-selskaper, energiselskaper',
     featured: true
@@ -76,7 +76,7 @@ export const serviceCards = [
     imageRotate: true,
     moduleType: 'combined',
     category: 'Kombinasjonsmodul',
-    icon: '🗺️',
+    icon: '',
     status: 'Aktiv',
     targetAudience: 'Kommuner, fylkeskommuner, offentlige myndigheter',
     featured: true
@@ -90,7 +90,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop&q=90',
     moduleType: 'support',
     category: 'Støttetjeneste',
-    icon: '📋',
+    icon: '',
     status: 'Aktiv',
     featured: false
   },
@@ -101,7 +101,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop&q=90',
     moduleType: 'support',
     category: 'Støttetjeneste',
-    icon: '🚁',
+    icon: '',
     status: 'Aktiv',
     featured: false
   }

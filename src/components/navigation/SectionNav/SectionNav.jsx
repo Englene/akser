@@ -95,7 +95,7 @@ function SectionNav({ sections }) {
   return (
     <nav className={styles.progressNav}>
       {/* Axis label */}
-      <div className={styles.axisLabel}>Progress</div>
+      <div className={styles.axisLabel}>Fremdrift</div>
 
       {/* Vertical axis line */}
       <div className={styles.axis}>

@@ -12,18 +12,23 @@ import styles from './ServiceSteps.module.css'
 
 function ServiceSteps() {
   const containerRef = useRef(null)
+  const cardCount = serviceCards.length
+  const scrollDistance = Math.max(cardCount - 1, 1) * 100
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   })
 
-  // 6 cards × 100vw = 600vw total content
-  // Need to move 5 cards = 500vw translation
-  const x = useTransform(scrollYProgress, [0, 0.9], ["0vw", "-500vw"])
+  // Translate across all cards: (cardCount - 1) * 100vw
+  const x = useTransform(scrollYProgress, [0, 1], ["0vw", `-${scrollDistance}vw`])
 
   return (
-    <section ref={containerRef} className={styles.section}>
+    <section
+      ref={containerRef}
+      className={styles.section}
+      style={{ height: `${scrollDistance}vh` }}
+    >
       <div className={styles.stickyContainer}>
         <motion.div
           className={styles.horizontalScroller}
@@ -45,7 +50,11 @@ function ServiceSteps() {
                     <div className={styles.stepMeta}>
                       Steg {index + 1} av {serviceCards.length}
                     </div>
-                    <h3 className={styles.title}>{service.title}</h3>
+                    <h3
+                      className={`${styles.title} ${service.title.length > 24 ? styles.titleLong : ''}`}
+                    >
+                      {service.title}
+                    </h3>
                     <p className={styles.description}>{service.description}</p>
                   </div>
                   <div className={styles.imageContent}>

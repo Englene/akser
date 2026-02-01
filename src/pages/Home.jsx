@@ -23,19 +23,28 @@ function Home() {
   // Section navigation configuration
   const sections = [
     { id: 'services-journey', label: 'Tjenester' },
+    { id: 'evaluation-section', label: 'Vurdering' },
     { id: 'tech-section', label: 'Teknologi' },
     { id: 'upcoming-section', label: 'Kommende' },
     { id: 'cta-section', label: 'Kontakt' }
   ]
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <>
       {/* <CoordinateDisplay /> */}
       <ParticlesWaves
         scrollProgress={0}
-        opacity={0.3}
-        waveAmplitude={1.2}
-        waveSpeed={0.8}
+        color="#10b981"
+        opacity={0.26}
+        waveAmplitude={1.0}
+        waveSpeed={0.9}
+        gridSize={{ width: 44, height: 30 }}
       />
       <OrganicGrid />
       <ScrollProgressBar position="right" showLabel={false} />
@@ -45,6 +54,50 @@ function Home() {
 
         {/* Services Journey - Kartinspirert Scroll-Flow */}
         <ServicesJourney />
+
+        {/* What We Evaluate */}
+        <section id="evaluation-section" className={styles.evaluationSection}>
+          <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            Hva vi vurderer
+          </h2>
+          <p className={styles.sectionDescription} style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto var(--space-12)' }}>
+            Fire kjernefaktorer som avgjør om et prosjekt faktisk kan realiseres.
+          </p>
+          <div className={styles.evaluationGrid}>
+            <GridInfoCard
+              variant="default"
+              number="01"
+              coordinates={{ tl: '[0,0]', tr: '[0,1]', bl: '[1,0]', br: '[1,1]' }}
+            >
+              <h3 className={styles.evaluationTitle}>Energi & Produksjon</h3>
+              <p className={styles.evaluationText}>Produksjonsprofiler, minimumslast og sesongvariasjon.</p>
+            </GridInfoCard>
+            <GridInfoCard
+              variant="default"
+              number="02"
+              coordinates={{ tl: '[1,0]', tr: '[1,1]', bl: '[2,0]', br: '[2,1]' }}
+            >
+              <h3 className={styles.evaluationTitle}>Nett & Infrastruktur</h3>
+              <p className={styles.evaluationText}>Nettrisiko, tilknytning og kritisk infrastruktur.</p>
+            </GridInfoCard>
+            <GridInfoCard
+              variant="default"
+              number="03"
+              coordinates={{ tl: '[2,0]', tr: '[2,1]', bl: '[3,0]', br: '[3,1]' }}
+            >
+              <h3 className={styles.evaluationTitle}>Lokasjon & Areal</h3>
+              <p className={styles.evaluationText}>Arealbruk, terreng, tilgang og konflikter.</p>
+            </GridInfoCard>
+            <GridInfoCard
+              variant="default"
+              number="04"
+              coordinates={{ tl: '[3,0]', tr: '[3,1]', bl: '[4,0]', br: '[4,1]' }}
+            >
+              <h3 className={styles.evaluationTitle}>Regulering & Risiko</h3>
+              <p className={styles.evaluationText}>Planstatus, regulatoriske løp og gjennomførbarhet.</p>
+            </GridInfoCard>
+          </div>
+        </section>
 
         {/* Spacer to prevent next section from appearing during scroll */}
         <div style={{ height: '50vh' }} />
@@ -63,6 +116,7 @@ function Home() {
             <AnimatedStat value={10} suffix="TWh+" label="Identifisert Kapasitet (Vannkraft)" />
             <AnimatedStat value={1500} suffix="+" label="Kostnadsanalyser & Nettrisiko-vurderinger" />
           </div>
+          <p className={styles.statsNote}>Oppsummerer interne analyser og datasettrekk (oppdatert løpende).</p>
         </section>
 
         {/* Divider between Stats and Differentiator */}
@@ -145,34 +199,55 @@ function Home() {
         />
 
         {/* Technology Stack Section - Horizontal Scroller */}
-        <HorizontalScroller title="Teknologi & Verktøy">
-          {technologyStack.map((category, idx) => (
-            <GridInfoCard
-              key={idx}
-              variant="default"
-              number={`0${idx + 1}`}
-              coordinates={{
-                tl: `[${idx},0]`,
-                tr: `[${idx},1]`,
-                bl: `[${idx + 1},0]`,
-                br: `[${idx + 1},1]`
-              }}
-              className={styles.techCardWrapper}
-            >
-              <h4 className={styles.techCategory}>{category.category}</h4>
-              <ul className={styles.techList}>
-                {category.tools.map((tool, i) => (
-                  <li key={i} className={styles.techItem}>
-                    <span className={styles.techBullet}>•</span>
-                    {tool}
-                  </li>
-                ))}
-              </ul>
-            </GridInfoCard>
-          ))}
-        </HorizontalScroller>
+        <section id="tech-section" className={styles.techSection}>
+          <HorizontalScroller title="Teknologi & Verktøy">
+            {technologyStack.map((category, idx) => (
+              <GridInfoCard
+                key={idx}
+                variant="default"
+                number={`0${idx + 1}`}
+                coordinates={{
+                  tl: `[${idx},0]`,
+                  tr: `[${idx},1]`,
+                  bl: `[${idx + 1},0]`,
+                  br: `[${idx + 1},1]`
+                }}
+                className={styles.techCardWrapper}
+              >
+                <h4 className={styles.techCategory}>{category.category}</h4>
+                <ul className={styles.techList}>
+                  {category.tools.map((tool, i) => (
+                    <li key={i} className={styles.techItem}>
+                      <span className={styles.techBullet}>•</span>
+                      {tool}
+                    </li>
+                  ))}
+                </ul>
+              </GridInfoCard>
+            ))}
+          </HorizontalScroller>
+        </section>
 
         {/* Divider between Tech and Target Audiences */}
+        <GridDivider variant="axis" />
+
+        {/* Mid CTA - quick contact prompt */}
+        <section className={styles.midCtaSection}>
+          <h3 className={styles.midCtaTitle}>Få en rask vurdering av dine lokasjoner</h3>
+          <p className={styles.midCtaText}>
+            Vi gir en tidlig screening av energi, nett og gjennomførbarhet — før store investeringer.
+          </p>
+          <div className={styles.midCtaButtons}>
+            <GridButton variant="primary" size="large" onClick={() => scrollToSection('cta-section')}>
+              Be om vurdering
+            </GridButton>
+            <GridButton variant="secondary" size="large" onClick={() => scrollToSection('upcoming-section')}>
+              Se tjenestepipeline
+            </GridButton>
+          </div>
+        </section>
+
+        {/* Divider between Mid CTA and Target Audiences */}
         <GridDivider variant="axis" />
 
         {/* Target Audiences Section */}
@@ -196,7 +271,6 @@ function Home() {
               }}
             >
               <h3 className={styles.audienceTitle}>
-                <span className={styles.audienceIcon}>🖥️</span>
                 Datasentereiere og AI/Tech-selskaper
               </h3>
               <ul className={styles.audienceList}>
@@ -217,7 +291,6 @@ function Home() {
               }}
             >
               <h3 className={styles.audienceTitle}>
-                <span className={styles.audienceIcon}>⚡</span>
                 Kraftprodusenter og Energiselskaper
               </h3>
               <ul className={styles.audienceList}>
@@ -238,7 +311,6 @@ function Home() {
               }}
             >
               <h3 className={styles.audienceTitle}>
-                <span className={styles.audienceIcon}>🏞️</span>
                 Grunneiere og Eiendomsutviklere
               </h3>
               <ul className={styles.audienceList}>
@@ -259,7 +331,6 @@ function Home() {
               }}
             >
               <h3 className={styles.audienceTitle}>
-                <span className={styles.audienceIcon}>🏛️</span>
                 Offentlige Myndigheter
               </h3>
               <ul className={styles.audienceList}>
@@ -374,10 +445,10 @@ function Home() {
             Forkast uegnede lokasjoner raskt. Prioriter gode lokasjoner med høyere sikkerhet.
           </p>
           <div className={styles.ctaButtons}>
-            <GridButton variant="primary" size="large">
+            <GridButton variant="primary" size="large" onClick={() => scrollToSection('services-journey')}>
               Utforsk Moduler
             </GridButton>
-            <GridButton variant="secondary" size="large">
+            <GridButton variant="secondary" size="large" onClick={() => scrollToSection('cta-section')}>
               Kontakt Oss
             </GridButton>
           </div>

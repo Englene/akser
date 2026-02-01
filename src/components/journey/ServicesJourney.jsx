@@ -4,6 +4,7 @@ import TopoScrollBackground from './TopoScrollBackground'
 import ParticlesWaves from '../effects/ParticlesWaves'
 import ServiceSteps from './ServiceSteps'
 import ParallaxLayer from '../effects/ParallaxLayer'
+import GridButton from '../ui/GridButton'
 import styles from './ServicesJourney.module.css'
 
 /**
@@ -17,6 +18,12 @@ import styles from './ServicesJourney.module.css'
  */
 function ServicesJourney() {
   const [scrollProgress, setScrollProgress] = useState(0)
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   // Track scroll progress through services section with RAF throttling
   useEffect(() => {
@@ -60,11 +67,11 @@ function ServicesJourney() {
       {/* LAYER 1 - 3D Particles Waves Background (fixed, no parallax transform) */}
       <ParticlesWaves
         scrollProgress={scrollProgress / 100}  // Normalize to 0-1
-        color="#10b981"           // Emerald-500
-        opacity={0.35}            // Slightly more visible
-        waveSpeed={0.8}           // Slightly slower for smoother motion
-        waveAmplitude={1.5}       // Larger waves for dramatic effect
-        gridSize={{ width: 60, height: 40 }}
+        color="#10b981"           // Emerald-500 (stronger)
+        opacity={0.32}            // More visible
+        waveSpeed={0.9}           // More motion
+        waveAmplitude={1.1}       // Larger waves
+        gridSize={{ width: 44, height: 30 }}
       />
 
       {/* LAYER 2 - Midground (0.6x speed - medium parallax) */}
@@ -85,8 +92,8 @@ function ServicesJourney() {
             <div className={styles.coordinates}>[59.9139° N, 10.7522° E]</div>
           </header>
 
-          <h1 className="text-massive">
-            {['Datadrevet', 'Beslutningsstøtte', 'for Kraftkrevende', 'Virksomhet'].map((word, i) => (
+          <h1 className={`text-massive ${styles.heroTitle}`}>
+            {['Tidlig beslutningsstøtte', 'for kraftkrevende prosjekter'].map((line, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -98,32 +105,19 @@ function ServicesJourney() {
                 }}
                 style={{ display: 'block' }}
               >
-                {word}
+                {line}
               </motion.span>
             ))}
           </h1>
           <p className={styles.heroSubtext}>
-            Vi identifiserer hvor kraftkrevende prosjekter faktisk kan realiseres –
-            basert på energi, nett, infrastruktur og risiko.
+            Vi kombinerer energi, nett og infrastruktur for å finne lokasjoner med
+            høy realiseringssannsynlighet.
           </p>
 
-          <div className={styles.heroPoints}>
-            <div className={styles.heroPoint}>
-              <span className={styles.pointNumber}>01</span>
-              <span className={styles.pointText}>Energi & Produksjonsprofiler (Vann + Sol)</span>
-            </div>
-            <div className={styles.heroPoint}>
-              <span className={styles.pointNumber}>02</span>
-              <span className={styles.pointText}>Nettrisikoanalyse & Infrastruktur</span>
-            </div>
-            <div className={styles.heroPoint}>
-              <span className={styles.pointNumber}>03</span>
-              <span className={styles.pointText}>Datasenter & Kraftkrevende Industri</span>
-            </div>
-            <div className={styles.heroPoint}>
-              <span className={styles.pointNumber}>04</span>
-              <span className={styles.pointText}>Kommunal Energikartlegging</span>
-            </div>
+          <div className={styles.heroActions}>
+            <GridButton variant="primary" size="large" onClick={() => scrollToSection('cta-section')}>
+              Book en demo
+            </GridButton>
           </div>
         </div>
 
