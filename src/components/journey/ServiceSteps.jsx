@@ -13,7 +13,8 @@ import styles from './ServiceSteps.module.css'
 function ServiceSteps() {
   const containerRef = useRef(null)
   const cardCount = serviceCards.length
-  const scrollDistance = Math.max(cardCount - 1, 1) * 100
+  // Extra 15vw to ensure last card is fully visible
+  const scrollDistance = Math.max(cardCount - 1, 1) * 100 + 15
 
   const { scrollYProgress } = useScroll({
     target: containerRef,

@@ -5,7 +5,7 @@
 
 .section {
   position: relative;
-  height: 500vh; /* Creates vertical scroll space for horizontal movement */
+  /* Height set dynamically via inline style based on card count */
 }
 
 .stickyContainer {

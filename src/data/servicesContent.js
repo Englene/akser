@@ -9,7 +9,7 @@
  */
 
 export const serviceCards = [
-  // ===== A) KJERNE-MODULER (Selvstendige analyser) =====
+  // ===== ENERGIKILDER =====
   {
     id: '01',
     title: 'Vannkraft – Screening og Produksjon',
@@ -17,6 +17,7 @@ export const serviceCards = [
     image: '/images/services/02-hydropower.png',
     moduleType: 'core',
     category: 'Kjerne-modul',
+    group: 'energy',
     icon: '',
     status: 'Aktiv',
     featured: true
@@ -28,10 +29,25 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&h=800&fit=crop&q=90',
     moduleType: 'core',
     category: 'Kjerne-modul',
+    group: 'energy',
     icon: '',
     status: 'I utvikling',
     featured: true
   },
+  {
+    id: '09',
+    title: 'Batterilokalisering og Nettstabilitet',
+    description: 'Identifiserer optimale lokasjoner for batteriparker som styrker nettstabilitet. Analyserer: Frekvensregulering, effektreserver, backup ved strømbrudd. Inkluderer kostnadsanalyse for økt inntjening over tid ved plassering nær kraftverk. Output: Egnede lokasjoner, stabilitetsbidrag, lønnsomhetsvurdering.',
+    image: '/images/services/battery-park.png',
+    moduleType: 'core',
+    category: 'Kjerne-modul',
+    group: 'energy',
+    icon: '',
+    status: 'I utvikling',
+    featured: true
+  },
+
+  // ===== NETT & INFRASTRUKTUR =====
   {
     id: '03',
     title: 'Nettrisikoanalyse',
@@ -39,6 +55,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=800&fit=crop&q=90',
     moduleType: 'core',
     category: 'Kjerne-modul',
+    group: 'grid',
     icon: '',
     status: 'Aktiv',
     featured: true
@@ -50,12 +67,13 @@ export const serviceCards = [
     image: '/images/services/03-dam.jpg',
     moduleType: 'core',
     category: 'Kjerne-modul',
+    group: 'grid',
     icon: '',
     status: 'Aktiv',
     featured: true
   },
 
-  // ===== B) KOMBINASJONSMODULER (Sammensatte analyser) =====
+  // ===== SAMMENSATTE LØSNINGER =====
   {
     id: '05',
     title: 'Datasenterlokasjoner',
@@ -63,6 +81,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&q=90',
     moduleType: 'combined',
     category: 'Kombinasjonsmodul',
+    group: 'solutions',
     icon: '',
     status: 'Aktiv',
     targetAudience: 'Datasentereiere, AI/tech-selskaper, energiselskaper',
@@ -72,17 +91,18 @@ export const serviceCards = [
     id: '06',
     title: 'Kommunal Energikartlegging',
     description: 'Helhetlig oversikt over energipotensial, konflikter og strategiske valg innen kommunegrenser. Kombinerer: Vann + Sol + Nett + Naturfare + Arealbruk. Output: Temakart, prioriterte områder, beslutningsstøtte for planarbeid.',
-    image: '/images/services/01-norway-topo.png',
-    imageRotate: true,
+    image: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&h=800&fit=crop&q=90',
+    imageRotate: false,
     moduleType: 'combined',
     category: 'Kombinasjonsmodul',
+    group: 'solutions',
     icon: '',
     status: 'Aktiv',
     targetAudience: 'Kommuner, fylkeskommuner, offentlige myndigheter',
     featured: true
   },
 
-  // ===== C) STØTTETJENESTER (Videre prosjektutvikling) =====
+  // ===== STØTTETJENESTER =====
   {
     id: '07',
     title: 'Konsesjonssøknader og Regulatorisk Vurdering',
@@ -90,6 +110,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop&q=90',
     moduleType: 'support',
     category: 'Støttetjeneste',
+    group: 'support',
     icon: '',
     status: 'Aktiv',
     featured: false
@@ -101,6 +122,7 @@ export const serviceCards = [
     image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop&q=90',
     moduleType: 'support',
     category: 'Støttetjeneste',
+    group: 'support',
     icon: '',
     status: 'Aktiv',
     featured: false
@@ -139,12 +161,6 @@ export const upcomingServices = [
     id: 'multi-energy',
     title: 'Multi-energi Kostnadsanalyse',
     description: 'Detaljert sammenligning av solkraft, batteripakker, og vannkraft. Lønnsomhetsberegninger og optimalisering av energimiks for ulike prosjekttyper.',
-    status: 'Planlagt'
-  },
-  {
-    id: 'battery-storage',
-    title: 'Batteripakke-optimalisering',
-    description: 'Dimensjonering og plassering av batteripakker for energilagring. Integrasjon med sol- og vannkraft for maksimal utnyttelse.',
     status: 'Planlagt'
   },
   {

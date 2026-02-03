@@ -16,6 +16,10 @@
   color: var(--color-primary);
   margin-bottom: var(--space-2);
   letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .number {

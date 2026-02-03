@@ -4,15 +4,15 @@ import GridButton from '../components/ui/GridButton'
 import GridCard from '../components/ui/GridCard'
 import GridInfoCard from '../components/ui/GridInfoCard'
 import GridDivider from '../components/ui/GridDivider'
-import { OrganicGrid } from '../components/layout'
+// OrganicGrid removed - using only ParticlesWaves background
 import ParticlesWaves from '../components/effects/ParticlesWaves'
 import ScrollProgressBar from '../components/ui/ScrollProgressBar'
-import HorizontalScroller from '../components/ui/HorizontalScroller'
-import AnimatedStat from '../components/ui/AnimatedStat'
+// HorizontalScroller removed - tech section dropped
+// AnimatedStat moved to ServicesJourney
 import SectionNav from '../components/navigation/SectionNav'
 import { ServicesJourney } from '../components/journey'
 import { UpcomingServices } from '../components/sections'
-import { serviceCards, technologyStack } from '../data/servicesContent'
+import { serviceCards } from '../data/servicesContent'
 import styles from './Home.module.css'
 
 /**
@@ -24,7 +24,6 @@ function Home() {
   const sections = [
     { id: 'services-journey', label: 'Tjenester' },
     { id: 'evaluation-section', label: 'Vurdering' },
-    { id: 'tech-section', label: 'Teknologi' },
     { id: 'upcoming-section', label: 'Kommende' },
     { id: 'cta-section', label: 'Kontakt' }
   ]
@@ -46,7 +45,6 @@ function Home() {
         waveSpeed={0.9}
         gridSize={{ width: 44, height: 30 }}
       />
-      <OrganicGrid />
       <ScrollProgressBar position="right" showLabel={false} />
       <SectionNav sections={sections} />
 
@@ -54,6 +52,86 @@ function Home() {
 
         {/* Services Journey - Kartinspirert Scroll-Flow */}
         <ServicesJourney />
+
+        {/* Two Analysis Levels Section - Moved up for better flow */}
+        <section className={styles.analysisLevelsSection}>
+          <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            To Analysenivåer
+          </h2>
+          <p className={styles.sectionDescription} style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-12)' }}>
+            Plattformen opererer på to nivåer, avhengig av hvor i utviklingsløpet prosjektet befinner seg.
+          </p>
+
+          <div className={styles.levelsGrid}>
+            <GridInfoCard
+              variant="primary"
+              number="1"
+              coordinates={{
+                tl: '[0,0]',
+                tr: '[0,1]',
+                bl: '[1,0]',
+                br: '[1,1]'
+              }}
+            >
+              <h3 className={styles.levelTitle}>Nivå 1: Bred Screening</h3>
+              <p className={styles.levelDescription}>
+                Automatisert analyse av store områder. Forkaster uegnede lokasjoner tidlig og rangerer gjenværende alternativer.
+              </p>
+              <div className={styles.levelFeatures}>
+                <div className={styles.levelFeature}>
+                  <span className={styles.featureIcon}>✓</span>
+                  <span>Nasjonal og regional kartlegging</span>
+                </div>
+                <div className={styles.levelFeature}>
+                  <span className={styles.featureIcon}>✓</span>
+                  <span>Investerings- og porteføljescreening</span>
+                </div>
+                <div className={styles.levelFeature}>
+                  <span className={styles.featureIcon}>✓</span>
+                  <span>Kommunale oversikter</span>
+                </div>
+              </div>
+              <div className={styles.levelOutput}>
+                <strong>Output:</strong> Beslutningsstøtte og prioritering
+              </div>
+            </GridInfoCard>
+
+            <GridInfoCard
+              variant="default"
+              number="2"
+              coordinates={{
+                tl: '[1,0]',
+                tr: '[1,1]',
+                bl: '[2,0]',
+                br: '[2,1]'
+              }}
+            >
+              <h3 className={styles.levelTitle}>Nivå 2: Fordypning av Utvalgte Lokasjoner</h3>
+              <p className={styles.levelDescription}>
+                Målrettet prosjektmodning med faglig vurdering. Planstatus, reguleringsbehov, og myndighetsløp.
+              </p>
+              <div className={styles.levelFeatures}>
+                <div className={styles.levelFeature}>
+                  <span className={styles.featureIcon}>✓</span>
+                  <span>Planstatus og reguleringsbehov</span>
+                </div>
+                <div className={styles.levelFeature}>
+                  <span className={styles.featureIcon}>✓</span>
+                  <span>Vurdering mot offentlig saksbehandling</span>
+                </div>
+                <div className={styles.levelFeature}>
+                  <span className={styles.featureIcon}>✓</span>
+                  <span>Pre-feasibility støtte</span>
+                </div>
+              </div>
+              <div className={styles.levelOutput}>
+                <strong>Output:</strong> Gjennomføringsplan med risikoreduksjon
+              </div>
+            </GridInfoCard>
+          </div>
+        </section>
+
+        <GridDivider variant="axis" />
 
         {/* What We Evaluate */}
         <section id="evaluation-section" className={styles.evaluationSection}>
@@ -99,30 +177,11 @@ function Home() {
           </div>
         </section>
 
-        {/* Spacer to prevent next section from appearing during scroll */}
-        <div style={{ height: '50vh' }} />
+        {/* Spacer */}
+        <div style={{ height: '30vh' }} />
 
-        {/* Divider between Services and Stats */}
-        <GridDivider
-          variant="coordinate"
-          leftLabel="[0.0, Tjenester]"
-          rightLabel="[1.0, Statistikk]"
-        />
-
-        {/* Stats Section */}
-        <section className={styles.statsSection}>
-          <div className={styles.statsGrid}>
-            <AnimatedStat value={5934} suffix="+" label="Energilokasjoner Analysert" />
-            <AnimatedStat value={10} suffix="TWh+" label="Identifisert Kapasitet (Vannkraft)" />
-            <AnimatedStat value={1500} suffix="+" label="Kostnadsanalyser & Nettrisiko-vurderinger" />
-          </div>
-          <p className={styles.statsNote}>Oppsummerer interne analyser og datasettrekk (oppdatert løpende).</p>
-        </section>
-
-        {/* Divider between Stats and Differentiator */}
-        <GridDivider
-          variant="axis"
-        />
+        {/* Divider before Differentiator */}
+        <GridDivider variant="axis" />
 
         {/* Differentiator Section - Why Akser is Different */}
         <section className={styles.differentiatorSection}>
@@ -193,42 +252,7 @@ function Home() {
           </div>
         </section>
 
-        {/* Divider between Differentiator and Tech */}
-        <GridDivider
-          variant="axis"
-        />
-
-        {/* Technology Stack Section - Horizontal Scroller */}
-        <section id="tech-section" className={styles.techSection}>
-          <HorizontalScroller title="Teknologi & Verktøy">
-            {technologyStack.map((category, idx) => (
-              <GridInfoCard
-                key={idx}
-                variant="default"
-                number={`0${idx + 1}`}
-                coordinates={{
-                  tl: `[${idx},0]`,
-                  tr: `[${idx},1]`,
-                  bl: `[${idx + 1},0]`,
-                  br: `[${idx + 1},1]`
-                }}
-                className={styles.techCardWrapper}
-              >
-                <h4 className={styles.techCategory}>{category.category}</h4>
-                <ul className={styles.techList}>
-                  {category.tools.map((tool, i) => (
-                    <li key={i} className={styles.techItem}>
-                      <span className={styles.techBullet}>•</span>
-                      {tool}
-                    </li>
-                  ))}
-                </ul>
-              </GridInfoCard>
-            ))}
-          </HorizontalScroller>
-        </section>
-
-        {/* Divider between Tech and Target Audiences */}
+        {/* Divider between Differentiator and Mid CTA */}
         <GridDivider variant="axis" />
 
         {/* Mid CTA - quick contact prompt */}
@@ -347,89 +371,6 @@ function Home() {
 
         {/* Upcoming Services - Pipeline */}
         <UpcomingServices />
-
-        {/* Divider between Upcoming and Analysis Levels */}
-        <GridDivider
-          variant="axis"
-        />
-
-        {/* Two Analysis Levels Section */}
-        <section className={styles.analysisLevelsSection}>
-          <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            To Analysenivåer
-          </h2>
-          <p className={styles.sectionDescription} style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-12)' }}>
-            Plattformen opererer på to nivåer, avhengig av hvor i utviklingsløpet prosjektet befinner seg.
-          </p>
-
-          <div className={styles.levelsGrid}>
-            <GridInfoCard
-              variant="primary"
-              number="1"
-              coordinates={{
-                tl: '[0,0]',
-                tr: '[0,1]',
-                bl: '[1,0]',
-                br: '[1,1]'
-              }}
-            >
-              <h3 className={styles.levelTitle}>Nivå 1: Bred Screening</h3>
-              <p className={styles.levelDescription}>
-                Automatisert analyse av store områder. Forkaster uegnede lokasjoner tidlig og rangerer gjenværende alternativer.
-              </p>
-              <div className={styles.levelFeatures}>
-                <div className={styles.levelFeature}>
-                  <span className={styles.featureIcon}>✓</span>
-                  <span>Nasjonal og regional kartlegging</span>
-                </div>
-                <div className={styles.levelFeature}>
-                  <span className={styles.featureIcon}>✓</span>
-                  <span>Investerings- og porteføljescreening</span>
-                </div>
-                <div className={styles.levelFeature}>
-                  <span className={styles.featureIcon}>✓</span>
-                  <span>Kommunale oversikter</span>
-                </div>
-              </div>
-              <div className={styles.levelOutput}>
-                <strong>Output:</strong> Beslutningsstøtte og prioritering
-              </div>
-            </GridInfoCard>
-
-            <GridInfoCard
-              variant="default"
-              number="2"
-              coordinates={{
-                tl: '[1,0]',
-                tr: '[1,1]',
-                bl: '[2,0]',
-                br: '[2,1]'
-              }}
-            >
-              <h3 className={styles.levelTitle}>Nivå 2: Fordypning av Utvalgte Lokasjoner</h3>
-              <p className={styles.levelDescription}>
-                Målrettet prosjektmodning med faglig vurdering. Planstatus, reguleringsbehov, og myndighetsløp.
-              </p>
-              <div className={styles.levelFeatures}>
-                <div className={styles.levelFeature}>
-                  <span className={styles.featureIcon}>✓</span>
-                  <span>Planstatus og reguleringsbehov</span>
-                </div>
-                <div className={styles.levelFeature}>
-                  <span className={styles.featureIcon}>✓</span>
-                  <span>Vurdering mot offentlig saksbehandling</span>
-                </div>
-                <div className={styles.levelFeature}>
-                  <span className={styles.featureIcon}>✓</span>
-                  <span>Pre-feasibility støtte</span>
-                </div>
-              </div>
-              <div className={styles.levelOutput}>
-                <strong>Output:</strong> Gjennomføringsplan med risikoreduksjon
-              </div>
-            </GridInfoCard>
-          </div>
-        </section>
 
         {/* Divider before CTA */}
         <GridDivider
