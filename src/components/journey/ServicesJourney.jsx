@@ -23,8 +23,15 @@ const supportServices = serviceCards.filter(s => s.group === 'support')
  * - Service cards med fade-in animasjoner (høyre side)
  * - Alt i hvit/grønn design som matcher resten av siden
  */
+// Norge: Nordkapp (71.17°N) til Lindesnes (57.98°N)
+const NORTH_LAT = 71.17
+const SOUTH_LAT = 57.98
+const EAST_LNG = 10.75
+
 function ServicesJourney() {
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [pageProgress, setPageProgress] = useState(0)
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
@@ -32,7 +39,7 @@ function ServicesJourney() {
     }
   }
 
-  // Track scroll progress through services section with RAF throttling
+  // Track scroll progress for coordinates (entire page)
   useEffect(() => {
     let rafId = null
 
@@ -40,6 +47,13 @@ function ServicesJourney() {
       if (rafId) cancelAnimationFrame(rafId)
 
       rafId = requestAnimationFrame(() => {
+        // Page progress for coordinates
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight
+        const scrolled = window.scrollY
+        const progress = Math.max(0, Math.min(1, scrolled / docHeight))
+        setPageProgress(progress)
+
+        // Section progress for waves
         const section = document.getElementById('services-journey')
         const hero = document.getElementById('hero-content')
 
@@ -47,12 +61,11 @@ function ServicesJourney() {
           const sectionRect = section.getBoundingClientRect()
           const heroRect = hero.getBoundingClientRect()
 
-          // Start calculating progress after hero scrolls off screen
           if (heroRect.bottom <= 0) {
             const contentHeight = section.scrollHeight - window.innerHeight - hero.offsetHeight
-            const scrolled = -sectionRect.top - hero.offsetHeight
-            const progress = Math.max(0, Math.min(100, (scrolled / contentHeight) * 100))
-            setScrollProgress(progress)
+            const sectionScrolled = -sectionRect.top - hero.offsetHeight
+            const sectionProgress = Math.max(0, Math.min(100, (sectionScrolled / contentHeight) * 100))
+            setScrollProgress(sectionProgress)
           } else {
             setScrollProgress(0)
           }
@@ -68,6 +81,11 @@ function ServicesJourney() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  // Calculate current coordinates based on scroll
+  const currentLat = NORTH_LAT - (pageProgress * (NORTH_LAT - SOUTH_LAT))
+  const currentLng = EAST_LNG + (pageProgress * 2) // Slight eastward drift
+  const coordString = `[${currentLat.toFixed(4)}° N, ${currentLng.toFixed(4)}° E]`
 
   return (
     <section id="services-journey" className={styles.journeySection}>
@@ -91,7 +109,7 @@ function ServicesJourney() {
               alt="Akser"
               className={styles.logo}
             />
-            <div className={styles.coordinates}>[59.9139° N, 10.7522° E]</div>
+            <div className={styles.coordinates}>{coordString}</div>
           </header>
 
           <h1 className={`text-massive ${styles.heroTitle}`}>
@@ -131,7 +149,7 @@ function ServicesJourney() {
         </div>
 
         {/* Energikilder Section */}
-        <section className={styles.serviceSection}>
+        <section id="energy-section" className={styles.serviceSection}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>01</span>
             <h2 className={styles.sectionTitle}>Energikilder</h2>
@@ -169,7 +187,7 @@ function ServicesJourney() {
         <GridDivider variant="axis" />
 
         {/* Nett & Infrastruktur Section */}
-        <section className={styles.serviceSection}>
+        <section id="grid-section" className={styles.serviceSection}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>02</span>
             <h2 className={styles.sectionTitle}>Nett & Infrastruktur</h2>
@@ -204,7 +222,7 @@ function ServicesJourney() {
         <GridDivider variant="axis" />
 
         {/* Sammensatte Løsninger Section */}
-        <section className={styles.serviceSection}>
+        <section id="solutions-section" className={styles.serviceSection}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>03</span>
             <h2 className={styles.sectionTitle}>Sammensatte Løsninger</h2>
@@ -246,7 +264,7 @@ function ServicesJourney() {
         <GridDivider variant="axis" />
 
         {/* Støttetjenester Section - Kompakt */}
-        <section className={styles.serviceSection}>
+        <section id="support-section" className={styles.serviceSection}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>04</span>
             <h2 className={styles.sectionTitle}>Støttetjenester</h2>

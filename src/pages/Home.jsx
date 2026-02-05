@@ -22,8 +22,15 @@ import styles from './Home.module.css'
 function Home() {
   // Section navigation configuration
   const sections = [
-    { id: 'services-journey', label: 'Tjenester' },
+    { id: 'services-journey', label: 'Hjem' },
+    { id: 'energy-section', label: 'Energi' },
+    { id: 'grid-section', label: 'Nett' },
+    { id: 'solutions-section', label: 'Løsninger' },
+    { id: 'support-section', label: 'Støtte' },
+    { id: 'analysis-section', label: 'Analyse' },
     { id: 'evaluation-section', label: 'Vurdering' },
+    { id: 'differentiator-section', label: 'Akser' },
+    { id: 'audiences-section', label: 'Målgrupper' },
     { id: 'upcoming-section', label: 'Kommende' },
     { id: 'cta-section', label: 'Kontakt' }
   ]
@@ -54,7 +61,7 @@ function Home() {
         <ServicesJourney />
 
         {/* Two Analysis Levels Section - Moved up for better flow */}
-        <section className={styles.analysisLevelsSection}>
+        <section id="analysis-section" className={styles.analysisLevelsSection}>
           <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
             To Analysenivåer
           </h2>
@@ -184,7 +191,7 @@ function Home() {
         <GridDivider variant="axis" />
 
         {/* Differentiator Section - Why Akser is Different */}
-        <section className={styles.differentiatorSection}>
+        <section id="differentiator-section" className={styles.differentiatorSection}>
           <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '4rem' }}>
             Mer enn kart. Mer enn energimodeller.
           </h2>
@@ -275,7 +282,7 @@ function Home() {
         <GridDivider variant="axis" />
 
         {/* Target Audiences Section */}
-        <section className={styles.audiencesSection}>
+        <section id="audiences-section" className={styles.audiencesSection}>
           <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
             For hvem?
           </h2>
