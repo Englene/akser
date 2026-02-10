@@ -113,7 +113,7 @@ function ServicesJourney() {
           </header>
 
           <h1 className={`text-massive ${styles.heroTitle}`}>
-            {['Tidlig beslutningsstøtte', 'for kraftkrevende prosjekter'].map((line, i) => (
+            {['Analyser som avdekker', 'hvor energiprosjekter kan realiseres'].map((line, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -130,21 +130,20 @@ function ServicesJourney() {
             ))}
           </h1>
           <p className={styles.heroSubtext}>
-            Vi kombinerer energi, nett og infrastruktur for å finne lokasjoner med
-            høy realiseringssannsynlighet.
+            Våre analyser gir innsikt i energi, nett og infrastruktur — og avdekker hvilke lokasjoner som har reelle forutsetninger for realisering, med lavt fotavtrykk i naturen.
           </p>
 
           <div className={styles.heroActions}>
             <GridButton variant="primary" size="large" onClick={() => scrollToSection('cta-section')}>
-              Book en demo
+              Ta kontakt for prosjektvurdering
             </GridButton>
           </div>
 
           {/* Stats - Social proof */}
           <div className={styles.heroStats}>
-            <AnimatedStat value={5934} suffix="+" label="Energilokasjoner Analysert" />
-            <AnimatedStat value={10000} suffix="GWh+" label="Identifisert Kapasitet (Vannkraft)" />
-            <AnimatedStat value={1500} suffix="+" label="Kostnadsanalyser & Nettrisiko-vurderinger" />
+            <AnimatedStat value={5934} suffix="+" label="Energilokasjoner i analysegrunnlaget" />
+            <AnimatedStat value={10000} suffix="GWh+" label="Kartlagt vannkraftkapasitet" />
+            <AnimatedStat value={1500} suffix="+" label="Gjennomførte nettrisikovurderinger" />
           </div>
         </div>
 
@@ -153,7 +152,7 @@ function ServicesJourney() {
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>01</span>
             <h2 className={styles.sectionTitle}>Energikilder</h2>
-            <p className={styles.sectionSubtitle}>Screening og analyse av kraftproduksjon</p>
+            <p className={styles.sectionSubtitle}>Innsikt i produksjonspotensial og systemegenskaper</p>
           </div>
           <div className={styles.serviceGrid3}>
             {energyServices.map((service, index) => (
@@ -191,7 +190,7 @@ function ServicesJourney() {
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>02</span>
             <h2 className={styles.sectionTitle}>Nett & Infrastruktur</h2>
-            <p className={styles.sectionSubtitle}>Analyse av tilknytning og kapasitet</p>
+            <p className={styles.sectionSubtitle}>Nettrisiko, tilknytningsforutsetninger og kapasitetsbegrensninger</p>
           </div>
           <div className={styles.serviceGrid2}>
             {gridServices.map((service, index) => (
@@ -221,12 +220,12 @@ function ServicesJourney() {
 
         <GridDivider variant="axis" />
 
-        {/* Sammensatte Løsninger Section */}
+        {/* Sammensatte Analyser Section */}
         <section id="solutions-section" className={styles.serviceSection}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>03</span>
-            <h2 className={styles.sectionTitle}>Sammensatte Løsninger</h2>
-            <p className={styles.sectionSubtitle}>Helhetlige analyser for spesifikke behov</p>
+            <h2 className={styles.sectionTitle}>Sammensatte Analyser</h2>
+            <p className={styles.sectionSubtitle}>Tverrfaglig vurdering der flere faktorer avgjør utfallet</p>
           </div>
           <div className={styles.serviceGrid2}>
             {solutionServices.map((service, index) => (
@@ -263,12 +262,12 @@ function ServicesJourney() {
 
         <GridDivider variant="axis" />
 
-        {/* Støttetjenester Section - Kompakt */}
+        {/* Videre Prosjektutvikling Section - Kompakt */}
         <section id="support-section" className={styles.serviceSection}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionNumber}>04</span>
-            <h2 className={styles.sectionTitle}>Støttetjenester</h2>
-            <p className={styles.sectionSubtitle}>Videre prosjektutvikling og dokumentasjon</p>
+            <h2 className={styles.sectionTitle}>Videre Prosjektutvikling</h2>
+            <p className={styles.sectionSubtitle}>For utvalgte lokasjoner som tas videre mot realisering</p>
           </div>
           <div className={styles.supportGrid}>
             {supportServices.map((service, index) => (

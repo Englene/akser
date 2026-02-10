@@ -2,21 +2,21 @@
  * Tjenesteinnhold for Akser landingsside
  * Norsk tekst for alle tjenestekort og seksjoner
  *
- * Modulær struktur:
- * - Kjerne-moduler: Selvstendige analyser
- * - Kombinasjonsmoduler: Sammensatte analyser som kombinerer flere kjerne-moduler
- * - Støttetjenester: Videre prosjektutvikling
+ * Analyseområder:
+ * - Kjerneanalyser: Selvstendige analyser
+ * - Sammensatte analyser: Tverrfaglige analyser som kombinerer flere kjerneanalyser
+ * - Videre prosjektutvikling: For lokasjoner som tas videre mot realisering
  */
 
 export const serviceCards = [
   // ===== ENERGIKILDER =====
   {
     id: '01',
-    title: 'Vannkraft – Screening og Produksjon',
-    description: 'Identifiserer potensielle vannkraftlokasjoner, estimerer produksjon og kostnad. Output: Årsproduksjon (GWh), produksjonsprofiler, minimumslast, kostnadsindikatorer.',
+    title: 'Vannkraft – Ressursanalyse',
+    description: 'Dyp innsikt i produksjonsmønstre og systemegenskaper for vannkraft. Vektlegger løsninger med lavt fotavtrykk i naturen — en viktig referanse for vurdering av energilokasjoner.',
     image: '/images/services/02-hydropower.png',
     moduleType: 'core',
-    category: 'Kjerne-modul',
+    category: 'Kjerneanalyse',
     group: 'energy',
     icon: '',
     status: 'Aktiv',
@@ -24,11 +24,11 @@ export const serviceCards = [
   },
   {
     id: '02',
-    title: 'Solkraft – Arealbasert Screening',
-    description: 'Egnede arealer for solkraft basert på terreng, solinnstråling, og nett. Output: Egnede arealer, installert effekt, produksjonsintervall.',
+    title: 'Solkraft – Lokasjonsvurdering',
+    description: 'Identifiserer områder med forutsetninger for lønnsom solkraft basert på terreng, solinnstråling, nettilgang og systemforhold. Prioriterer lokasjoner med lavt naturinngrep.',
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&h=800&fit=crop&q=90',
     moduleType: 'core',
-    category: 'Kjerne-modul',
+    category: 'Kjerneanalyse',
     group: 'energy',
     icon: '',
     status: 'I utvikling',
@@ -36,11 +36,11 @@ export const serviceCards = [
   },
   {
     id: '09',
-    title: 'Batterilokalisering og Nettstabilitet',
-    description: 'Identifiserer optimale lokasjoner for batteriparker som styrker nettstabilitet. Analyserer: Frekvensregulering, effektreserver, backup ved strømbrudd. Inkluderer kostnadsanalyse for økt inntjening over tid ved plassering nær kraftverk. Output: Egnede lokasjoner, stabilitetsbidrag, lønnsomhetsvurdering.',
+    title: 'Batteri – Nettstabilitet og Systemfleksibilitet',
+    description: 'Analyse av lokasjoner der batteriløsninger kan styrke nettstabilitet og systemfleksibilitet. Avdekker hvor energilagring gir størst verdi for nettbalanse og langsiktig lønnsomhet.',
     image: '/images/services/battery-park.png',
     moduleType: 'core',
-    category: 'Kjerne-modul',
+    category: 'Kjerneanalyse',
     group: 'energy',
     icon: '',
     status: 'I utvikling',
@@ -51,10 +51,10 @@ export const serviceCards = [
   {
     id: '03',
     title: 'Nettrisikoanalyse',
-    description: 'Vurderer sannsynlighet for vellykket nettilknytning, ikke bare fysisk nærhet. Analyserer: Hvordan nettet er bygget, hvor presset det er, sannsynlig kostnadsnivå. Output: Nettrisikoscore, forklaring av flaskehalser.',
+    description: 'Avdekker reell sannsynlighet for vellykket nettilknytning — ikke bare fysisk nærhet. Viser hvor flaskehalsene ligger og hvilke lokasjoner som har bedre forutsetninger.',
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=800&fit=crop&q=90',
     moduleType: 'core',
-    category: 'Kjerne-modul',
+    category: 'Kjerneanalyse',
     group: 'grid',
     icon: '',
     status: 'Aktiv',
@@ -63,24 +63,24 @@ export const serviceCards = [
   {
     id: '04',
     title: 'Produksjonsprofiler og Minimumslast',
-    description: 'Energitilgang over tid (ikke bare årsproduksjon) – kritisk for datasentre og industri. Output: Tidsserier, minimum tilgjengelig effekt, sesongvariasjon.',
+    description: 'Gir innsikt i energitilgang over tid — ikke bare årsproduksjon. Kritisk for aktører som trenger forutsigbar effekt, der sesongvariasjon og minimumslast avgjør lokasjonens reelle verdi.',
     image: '/images/services/03-dam.jpg',
     moduleType: 'core',
-    category: 'Kjerne-modul',
+    category: 'Kjerneanalyse',
     group: 'grid',
     icon: '',
     status: 'Aktiv',
     featured: true
   },
 
-  // ===== SAMMENSATTE LØSNINGER =====
+  // ===== SAMMENSATTE ANALYSER =====
   {
     id: '05',
     title: 'Datasenterlokasjoner',
-    description: 'Identifiserer lokasjoner der datasentre har høy sannsynlighet for realisering. Kombinerer: Energi (vann+sol) + Nett + Fiber + Klima/kjøling + Areal/plan. Output: Samlet egnethetsscore, minimum effekt over tid, identifiserte flaskehalser.',
+    description: 'Avdekker hvilke lokasjoner som har reelle forutsetninger for datasentre — energi, nett, fiber, kjøling og areal vurderes samlet, med vekt på lavt naturinngrep.',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&q=90',
     moduleType: 'combined',
-    category: 'Kombinasjonsmodul',
+    category: 'Sammensatt analyse',
     group: 'solutions',
     icon: '',
     status: 'Aktiv',
@@ -90,11 +90,11 @@ export const serviceCards = [
   {
     id: '06',
     title: 'Kommunal Energikartlegging',
-    description: 'Helhetlig oversikt over energipotensial, konflikter og strategiske valg innen kommunegrenser. Kombinerer: Vann + Sol + Nett + Naturfare + Arealbruk. Output: Temakart, prioriterte områder, beslutningsstøtte for planarbeid.',
+    description: 'Helhetlig oversikt over energipotensial, arealkonflikt og strategiske muligheter. Synliggjør hvilke områder som bør prioriteres — og hvilke som har vesentlige begrensninger.',
     image: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200&h=800&fit=crop&q=90',
     imageRotate: false,
     moduleType: 'combined',
-    category: 'Kombinasjonsmodul',
+    category: 'Sammensatt analyse',
     group: 'solutions',
     icon: '',
     status: 'Aktiv',
@@ -102,14 +102,14 @@ export const serviceCards = [
     featured: true
   },
 
-  // ===== STØTTETJENESTER =====
+  // ===== VIDERE PROSJEKTUTVIKLING =====
   {
     id: '07',
-    title: 'Konsesjonssøknader og Regulatorisk Vurdering',
-    description: 'Nivå 2 (Fordypning): Planstatus, reguleringsbehov, myndighetsløp. Komplett utarbeidelse av konsesjonssøknader med påkrevd dokumentasjon, miljøvurderinger, og tekniske tegninger. Pre-feasibility støtte.',
+    title: 'Regulatorisk Vurdering og Konsesjonsstøtte',
+    description: 'For prosjekter som har bestått innledende analyse tilbyr vi fordypning i planstatus, regulatoriske forutsetninger og myndighetsløp. Relevant for aktører som ønsker å ta utvalgte lokasjoner videre mot realisering.',
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop&q=90',
     moduleType: 'support',
-    category: 'Støttetjeneste',
+    category: 'Videre prosjektutvikling',
     group: 'support',
     icon: '',
     status: 'Aktiv',
@@ -117,11 +117,11 @@ export const serviceCards = [
   },
   {
     id: '08',
-    title: 'On-site Kartlegging & Drone',
-    description: 'Fysisk befaring og dronekartlegging av lokasjonene. Vi dokumenterer terreng, adkomstveier, eksisterende infrastruktur, og potensielle utfordringer med høyoppløselig foto og video.',
+    title: 'Befaring og Feltverifikasjon',
+    description: 'Fysisk verifikasjon av utvalgte lokasjoner med dronekartlegging og terrengdokumentasjon. Supplerer den analytiske vurderingen med stedsspesifikke observasjoner som ikke fanges av fjernanalyse.',
     image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&h=800&fit=crop&q=90',
     moduleType: 'support',
-    category: 'Støttetjeneste',
+    category: 'Videre prosjektutvikling',
     group: 'support',
     icon: '',
     status: 'Aktiv',
@@ -159,14 +159,14 @@ export const technologyStack = [
 export const upcomingServices = [
   {
     id: 'multi-energy',
-    title: 'Multi-energi Kostnadsanalyse',
-    description: 'Detaljert sammenligning av solkraft, batteripakker, og vannkraft. Lønnsomhetsberegninger og optimalisering av energimiks for ulike prosjekttyper.',
+    title: 'Multi-energi Analyse',
+    description: 'Sammenstilt vurdering av solkraft, vannkraft og energilagring — avdekker hvilken energimiks som gir best forutsetninger for ulike prosjekttyper og lokasjoner.',
     status: 'Planlagt'
   },
   {
     id: 'industry-locations',
     title: 'Industrilokasjon-analyse',
-    description: 'Kartlegging av egnede lokasjoner for kraftkrevende industri (aluminium, hydrogen, etc.) med vurdering av energi, nett, transport og arbeidskraft.',
+    description: 'Analyse av egnede lokasjoner for kraftkrevende industri, der energitilgang, nettkapasitet, logistikk og arbeidskraft vurderes samlet.',
     status: 'Planlagt'
   }
 ]

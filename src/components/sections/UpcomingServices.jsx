@@ -21,11 +21,10 @@ function UpcomingServices() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className={styles.badge}>I Pipeline</div>
-          <h2 className="text-hero">Kommende Tjenester</h2>
+          <div className={styles.badge}>Under utvikling</div>
+          <h2 className="text-hero">Kommende Analyseområder</h2>
           <p className={styles.description}>
-            Vi utvider kontinuerlig vårt tjenestetilbud med nye analyseområder
-            innen fornybar energi og datainfrastruktur.
+            Analysegrunnlaget utvides kontinuerlig med nye fagområder innen fornybar energi og energiinfrastruktur.
           </p>
         </motion.div>
 

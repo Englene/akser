@@ -25,8 +25,8 @@ function Home() {
     { id: 'services-journey', label: 'Hjem' },
     { id: 'energy-section', label: 'Energi' },
     { id: 'grid-section', label: 'Nett' },
-    { id: 'solutions-section', label: 'Løsninger' },
-    { id: 'support-section', label: 'Støtte' },
+    { id: 'solutions-section', label: 'Analyser' },
+    { id: 'support-section', label: 'Utvikling' },
     { id: 'analysis-section', label: 'Analyse' },
     { id: 'evaluation-section', label: 'Vurdering' },
     { id: 'differentiator-section', label: 'Akser' },
@@ -66,7 +66,7 @@ function Home() {
             To Analysenivåer
           </h2>
           <p className={styles.sectionDescription} style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-12)' }}>
-            Plattformen opererer på to nivåer, avhengig av hvor i utviklingsløpet prosjektet befinner seg.
+            Analysene opererer på to nivåer, avhengig av hvor i utviklingsløpet prosjektet befinner seg.
           </p>
 
           <div className={styles.levelsGrid}>
@@ -82,7 +82,7 @@ function Home() {
             >
               <h3 className={styles.levelTitle}>Nivå 1: Bred Screening</h3>
               <p className={styles.levelDescription}>
-                Automatisert analyse av store områder. Forkaster uegnede lokasjoner tidlig og rangerer gjenværende alternativer.
+                Systematisk analyse av store områder. Skiller tidlig mellom lokasjoner med reelt potensial og de som bør forkastes.
               </p>
               <div className={styles.levelFeatures}>
                 <div className={styles.levelFeature}>
@@ -99,7 +99,7 @@ function Home() {
                 </div>
               </div>
               <div className={styles.levelOutput}>
-                <strong>Output:</strong> Beslutningsstøtte og prioritering
+                <strong>Resultat:</strong> Prioritert beslutningsgrunnlag
               </div>
             </GridInfoCard>
 
@@ -132,7 +132,7 @@ function Home() {
                 </div>
               </div>
               <div className={styles.levelOutput}>
-                <strong>Output:</strong> Gjennomføringsplan med risikoreduksjon
+                <strong>Resultat:</strong> Gjennomføringsplan med dokumentert risikovurdering
               </div>
             </GridInfoCard>
           </div>
@@ -171,7 +171,7 @@ function Home() {
               coordinates={{ tl: '[2,0]', tr: '[2,1]', bl: '[3,0]', br: '[3,1]' }}
             >
               <h3 className={styles.evaluationTitle}>Lokasjon & Areal</h3>
-              <p className={styles.evaluationText}>Arealbruk, terreng, tilgang og konflikter.</p>
+              <p className={styles.evaluationText}>Arealbruk, terreng, naturhensyn og konflikter.</p>
             </GridInfoCard>
             <GridInfoCard
               variant="default"
@@ -243,11 +243,11 @@ function Home() {
                 br: '[3,1]'
               }}
             >
-              <h3 className={styles.comparisonTitle}>Akser ✓</h3>
+              <h3 className={styles.comparisonTitle}>Akser</h3>
               <ul className={styles.comparisonList}>
-                <li>Kombinerer kart + energi + nett + regulering</li>
-                <li>"Hvor har prosjekter faktisk høy sannsynlighet for å bli realisert?"</li>
-                <li>Helhetlig gjennomførbarhetsanalyse</li>
+                <li>Sammenstilt analyse av energi, nett, areal og regulering</li>
+                <li>"Hvilke lokasjoner kan realiseres — med lavt fotavtrykk i naturen?"</li>
+                <li>Dypt analysegrunnlag bygget over tid</li>
               </ul>
             </GridInfoCard>
           </div>
@@ -264,16 +264,16 @@ function Home() {
 
         {/* Mid CTA - quick contact prompt */}
         <section className={styles.midCtaSection}>
-          <h3 className={styles.midCtaTitle}>Få en rask vurdering av dine lokasjoner</h3>
+          <h3 className={styles.midCtaTitle}>Har du lokasjoner som bør vurderes?</h3>
           <p className={styles.midCtaText}>
-            Vi gir en tidlig screening av energi, nett og gjennomførbarhet — før store investeringer.
+            Vi inngår et begrenset antall samarbeid og prioriterer prosjekter der analysene kan gjøre en reell forskjell.
           </p>
           <div className={styles.midCtaButtons}>
             <GridButton variant="primary" size="large" onClick={() => scrollToSection('cta-section')}>
-              Be om vurdering
+              Ta kontakt for vurdering
             </GridButton>
             <GridButton variant="secondary" size="large" onClick={() => scrollToSection('upcoming-section')}>
-              Se tjenestepipeline
+              Se kommende analyseområder
             </GridButton>
           </div>
         </section>
@@ -284,10 +284,10 @@ function Home() {
         {/* Target Audiences Section */}
         <section id="audiences-section" className={styles.audiencesSection}>
           <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            For hvem?
+            Hvem er analysene for?
           </h2>
           <p className={styles.sectionDescription} style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-12)' }}>
-            Fire primære målgrupper som drar nytte av plattformens modulære analyser.
+            Akser samarbeider med aktører som tar energilokalisering på alvor — og som har prosjekter der grundig analyse utgjør forskjellen.
           </p>
 
           <div className={styles.audiencesGrid}>
@@ -305,9 +305,9 @@ function Home() {
                 Datasentereiere og AI/Tech-selskaper
               </h3>
               <ul className={styles.audienceList}>
-                <li>Identifiser lokasjoner med høy sannsynlighet for realisering</li>
-                <li>Vurder energi, nett, fiber, kjøling samlet</li>
-                <li>Sammenlign lokasjoner på driftsrealitet over tid</li>
+                <li>Hvilke lokasjoner har reelle forutsetninger for realisering?</li>
+                <li>Samlet vurdering av energi, nett, fiber og kjøling</li>
+                <li>Langsiktig driftsgrunnlag — ikke bare dag-1-forutsetninger</li>
               </ul>
             </GridInfoCard>
 
@@ -325,9 +325,9 @@ function Home() {
                 Kraftprodusenter og Energiselskaper
               </h3>
               <ul className={styles.audienceList}>
-                <li>Screening av vannkraft- og solkraftpotensial</li>
-                <li>Nettrisiko og tilknytningskostnader</li>
-                <li>Investeringsscreening og porteføljeoptimalisering</li>
+                <li>Dyp innsikt i vannkraft- og solkraftpotensial</li>
+                <li>Nettrisiko og reelle tilknytningsforutsetninger</li>
+                <li>Analysegrunnlag for investeringsbeslutninger og porteføljevurdering</li>
               </ul>
             </GridInfoCard>
 
@@ -345,9 +345,9 @@ function Home() {
                 Grunneiere og Eiendomsutviklere
               </h3>
               <ul className={styles.audienceList}>
-                <li>Vurder egne eiendommer for energiproduksjon eller datasenter</li>
-                <li>Innsikt i potensial og gjennomførbarhet</li>
-                <li>Beslutningsstøtte for utviklingsprosjekter</li>
+                <li>Hva er det reelle energipotensialet på eiendommen?</li>
+                <li>Analysene avdekker forutsetninger, begrensninger og muligheter</li>
+                <li>Grunnlag for å vurdere om videre utvikling er forsvarlig</li>
               </ul>
             </GridInfoCard>
 
@@ -365,9 +365,9 @@ function Home() {
                 Offentlige Myndigheter
               </h3>
               <ul className={styles.audienceList}>
-                <li>Kommunal energikartlegging</li>
-                <li>Planarbeid og strategisk prioritering</li>
-                <li>Beslutningsstøtte for energipolitikk</li>
+                <li>Helhetlig energikartlegging innenfor kommunegrenser</li>
+                <li>Analysegrunnlag for planarbeid og strategisk prioritering</li>
+                <li>Innsikt som støtter energipolitiske beslutninger</li>
               </ul>
             </GridInfoCard>
           </div>
@@ -387,17 +387,17 @@ function Home() {
         {/* CTA Section */}
         <section id="cta-section" className={styles.ctaSection}>
           <h2 className="text-hero">
-            Klar for å flytte kritisk beslutningsinformasjon tidligere i prosessen?
+            Har du prosjekter som krever grundigere analysegrunnlag?
           </h2>
           <p className={styles.ctaText}>
-            Forkast uegnede lokasjoner raskt. Prioriter gode lokasjoner med høyere sikkerhet.
+            Vi samarbeider med et begrenset antall aktører som ønsker dypere innsikt i energilokasjoner for fornybare prosjekter.
           </p>
           <div className={styles.ctaButtons}>
             <GridButton variant="primary" size="large" onClick={() => scrollToSection('services-journey')}>
-              Utforsk Moduler
+              Se analyseområdene
             </GridButton>
             <GridButton variant="secondary" size="large" onClick={() => scrollToSection('cta-section')}>
-              Kontakt Oss
+              Ta kontakt
             </GridButton>
           </div>
         </section>
